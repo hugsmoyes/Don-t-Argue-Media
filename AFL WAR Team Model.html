@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AFL Team WAR — 2026 Season · Round 12</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4f7;--surface:#fff;--border:#e2e5eb;--accent:#16a34a;--accent-light:#dcfce7;--accent2:#ea580c;--text:#111827;--text-mid:#374151;--muted:#6b7280;--muted-light:#9ca3af;--green:#22c55e;--red:#dc2626;--gold:#ca8a04;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;font-size:15px;line-height:1.7;}
+a{color:inherit;text-decoration:none;}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.nav-brand{font-family:"Bebas Neue",sans-serif;font-size:22px;letter-spacing:.06em;}
+.nav-brand span{color:var(--accent);}
+.nav-back{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:var(--accent);}
+.page{max-width:1000px;margin:0 auto;padding:48px 28px 96px;}
+.badge{display:inline-block;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;color:var(--accent);border:1px solid var(--accent);padding:3px 10px;margin-bottom:12px;text-transform:uppercase;}
+h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(42px,7vw,72px);letter-spacing:.02em;line-height:.9;margin-bottom:8px;}
+h1 span{color:var(--accent);}
+.meta{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--muted);margin-bottom:32px;}
+.intro{font-size:16px;color:var(--text-mid);line-height:1.75;margin-bottom:36px;max-width:680px;}
+/* LEAGUE TABLE */
+.league-table{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:48px;}
+.lt-header{background:var(--bg);padding:10px 18px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:28px 1fr 80px 70px;gap:10px;align-items:center;}
+.lt-header span{font-family:"DM Mono",monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.lt-row{padding:10px 18px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:28px 1fr 80px 70px;gap:10px;align-items:center;transition:background .12s;}
+.lt-row:last-child{border-bottom:none;}
+.lt-row:hover{background:#f8f9fa;}
+.lt-rank{font-family:"DM Mono",monospace;font-size:13px;color:var(--muted);text-align:center;}
+.lt-rank.top3{color:var(--gold);}
+.lt-name-wrap{}
+.lt-name{font-weight:500;font-size:14px;}
+.lt-leader{font-family:"DM Mono",monospace;font-size:9px;color:var(--muted);letter-spacing:.04em;}
+.lt-bar-wrap{display:flex;align-items:center;gap:6px;}
+.lt-bar-track{flex:1;height:10px;background:var(--bg);border-radius:5px;overflow:hidden;}
+.lt-bar-fill{height:100%;border-radius:5px;background:var(--accent);transition:width .4s;}
+.lt-war{font-family:"DM Mono",monospace;font-size:14px;font-weight:500;text-align:right;}
+/* TEAM SECTIONS */
+.teams-grid{display:flex;flex-direction:column;gap:32px;}
+.team-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.team-card-head{padding:18px 22px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;align-items:start;gap:16px;}
+.team-rank-badge{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.team-name{font-family:"Bebas Neue",sans-serif;font-size:28px;letter-spacing:.03em;line-height:1;}
+.team-war-total{text-align:right;}
+.team-war-num{font-family:"Bebas Neue",sans-serif;font-size:36px;letter-spacing:.03em;line-height:1;color:var(--accent);}
+.team-war-lbl{font-family:"DM Mono",monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.team-body{padding:20px 22px;display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start;}
+.team-text{font-size:14px;color:var(--text-mid);line-height:1.75;}
+.team-text p{margin-bottom:12px;}
+.team-text p:last-child{margin-bottom:0;}
+.team-text strong{color:var(--text);}
+.team-panel{}
+.team-leader-card{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--accent);padding:11px 14px;margin-bottom:14px;}
+.tlc-label{font-family:"DM Mono",monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.tlc-name{font-weight:500;font-size:15px;}
+.tlc-pos{font-family:"DM Mono",monospace;font-size:9px;color:var(--muted);letter-spacing:.05em;margin-top:1px;}
+.tlc-war{font-family:"Bebas Neue",sans-serif;font-size:26px;color:var(--accent);line-height:1;margin-top:4px;}
+.squad-bars{display:flex;flex-direction:column;gap:5px;}
+.sb-row{display:flex;align-items:center;gap:6px;}
+.sb-name{font-family:"DM Mono",monospace;font-size:9px;color:var(--muted);min-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.sb-track{flex:1;height:8px;background:var(--bg);border-radius:4px;overflow:hidden;}
+.sb-fill{height:100%;border-radius:4px;}
+.sb-val{font-family:"DM Mono",monospace;font-size:9px;font-weight:500;min-width:30px;text-align:right;}
+.aa-count{font-family:"DM Mono",monospace;font-size:9px;color:var(--muted);margin-top:8px;letter-spacing:.05em;}
+@media(max-width:700px){.team-body{grid-template-columns:1fr;}.team-card-head{grid-template-columns:1fr;}.lt-header,.lt-row{grid-template-columns:28px 1fr 70px;}.lt-bar-wrap{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-back">&#8592; Back</a>
+  <a href="index.html" class="nav-brand">DON'T ARGUE <span>MEDIA</span></a>
+</nav>
+<div class="page">
+  <div class="badge">2026 AFL Season · WAR v35 · Round 12</div>
+  <h1>Team <span>WAR</span></h1>
+  <div class="meta">Squad totals · contribution breakdown · positional spread · through Round 12</div>
+  <p class="intro">What does each AFL club actually look like on the numbers? Total WAR adds up every positive contribution from every player in the squad. The number tells you how much value a club has accumulated above replacement level. Some clubs have one elite player carrying the load. Others have spread it across five or six. Both approaches show up here.</p>
+
+  <!-- LEAGUE TABLE -->
+  <div class="league-table">
+    <div class="lt-header">
+      <span>#</span><span>Club</span><span>Total WAR</span><span>WAR</span>
+    </div>
+    <div id="lt-body"></div>
+  </div>
+
+  <!-- TEAM SECTIONS -->
+  <div class="teams-grid" id="teams-grid"></div>
+</div>
+
+<script>
+const TEAMS=[{"team":"Geelong","total":24.0,"leader":"Bailey Smith","leader_war":2.17,"top5":[["Bailey Smith",2.17,"Midfielder"],["Shaun Mannagh",1.98,"Gen. Forward"],["Tom Stewart",1.92,"Gen. Defender"],["Jeremy Cameron",1.79,"Key Forward"],["Lawson Humphries",1.59,"Gen. Defender"]],"above_aa":6,"count":27},{"team":"Sydney","total":23.3,"leader":"Isaac Heeney","leader_war":3.03,"top5":[["Isaac Heeney",3.03,"Midfielder"],["Nick Blakey",2.44,"Gen. Defender"],["Chad Warner",1.92,"Mid-Forward"],["Brodie Grundy",1.91,"Ruck"],["Tom McCartin",1.66,"Key Defender"]],"above_aa":6,"count":26},{"team":"Fremantle","total":22.2,"leader":"Luke Jackson","leader_war":2.17,"top5":[["Luke Jackson",2.17,"Ruck"],["Josh Treacy",2.15,"Key Forward"],["Shai Bolton",1.53,"Midfielder"],["Murphy Reid",1.32,"Gen. Forward"],["Caleb Serong",1.31,"Midfielder"]],"above_aa":3,"count":27},{"team":"Hawthorn","total":21.9,"leader":"Nick Watson","leader_war":2.29,"top5":[["Nick Watson",2.29,"Gen. Forward"],["James Sicily",1.95,"Key Defender"],["Dylan Moore",1.73,"Gen. Forward"],["Tom Barrass",1.72,"Key Defender"],["Blake Hardwick",1.68,"Gen. Defender"]],"above_aa":5,"count":26},{"team":"Gold Coast","total":20.0,"leader":"Christian Petracca","leader_war":2.17,"top5":[["Christian Petracca",2.17,"Midfielder"],["John Noble",1.67,"Gen. Defender"],["Joel Jeffrey",1.62,"Gen. Defender"],["Touk Miller",1.38,"Mid-Forward"],["Ben Long",1.34,"Gen. Forward"]],"above_aa":3,"count":28},{"team":"Greater Western Sydney","total":19.1,"leader":"Clayton Oliver","leader_war":1.54,"top5":[["Clayton Oliver",1.54,"Midfielder"],["Aaron Cadman",1.47,"Key Forward"],["Brent Daniels",1.35,"Mid-Forward"],["Jake Stringer",1.3,"Key Forward"],["Lachie Ash",1.28,"Gen. Defender"]],"above_aa":1,"count":30},{"team":"Brisbane","total":19.0,"leader":"Charlie Cameron","leader_war":1.89,"top5":[["Charlie Cameron",1.89,"Gen. Forward"],["Darcy Wilmot",1.69,"Gen. Defender"],["Zac Bailey",1.65,"Mid-Forward"],["Dayne Zorko",1.52,"Gen. Defender"],["Harris Andrews",1.52,"Key Defender"]],"above_aa":5,"count":28},{"team":"Melbourne","total":18.4,"leader":"Max Gawn","leader_war":1.95,"top5":[["Max Gawn",1.95,"Ruck"],["Kade Chandler",1.76,"Gen. Forward"],["Kysaiah Pickett",1.64,"Midfielder"],["Bayley Fritsch",1.55,"Gen. Forward"],["Daniel Turner",1.39,"Key Defender"]],"above_aa":4,"count":28},{"team":"North Melbourne","total":17.3,"leader":"Tristan Xerri","leader_war":1.78,"top5":[["Tristan Xerri",1.78,"Ruck"],["Paul Curtis",1.53,"Gen. Forward"],["Luke Parker",1.45,"Gen. Defender"],["Jack Darling",1.39,"Key Forward"],["Luke Davies-Uniacke",1.39,"Midfielder"]],"above_aa":2,"count":27},{"team":"St Kilda","total":17.1,"leader":"Callum Wilkie","leader_war":2.23,"top5":[["Callum Wilkie",2.23,"Key Defender"],["Jack Sinclair",1.74,"Gen. Defender"],["Nasiah Wanganeen-Milera",1.68,"Midfielder"],["Max Hall",1.54,"Mid-Forward"],["Bradley Hill",1.05,"Gen. Forward"]],"above_aa":4,"count":28},{"team":"Western Bulldogs","total":16.3,"leader":"Marcus Bontempelli","leader_war":1.99,"top5":[["Marcus Bontempelli",1.99,"Midfielder"],["Ed Richards",1.8,"Midfielder"],["Bailey Dale",1.34,"Gen. Defender"],["Aaron Naughton",1.32,"Key Forward"],["Rhylee West",1.12,"Gen. Forward"]],"above_aa":2,"count":30},{"team":"Adelaide","total":15.4,"leader":"Wayne Milera","leader_war":1.6,"top5":[["Wayne Milera",1.6,"Gen. Defender"],["Jordan Dawson",1.53,"Midfielder"],["Josh Rachele",1.37,"Mid-Forward"],["Josh Worrell",1.2,"Gen. Defender"],["Ben Keays",0.99,"Gen. Forward"]],"above_aa":2,"count":28},{"team":"Collingwood","total":15.2,"leader":"Jeremy Howe","leader_war":1.71,"top5":[["Jeremy Howe",1.71,"Key Defender"],["Jordan De Goey",1.32,"Mid-Forward"],["Josh Daicos",1.29,"Gen. Defender"],["Jamie Elliott",1.28,"Gen. Forward"],["Nick Daicos",1.22,"Midfielder"]],"above_aa":1,"count":27},{"team":"Port Adelaide","total":13.9,"leader":"Zak Butters","leader_war":1.3,"top5":[["Zak Butters",1.3,"Midfielder"],["Jason Horne-Francis",1.29,"Midfielder"],["Aliir Aliir",1.25,"Key Defender"],["Todd Marshall",1.17,"Key Defender"],["Mitch Georgiades",0.99,"Key Forward"]],"above_aa":0,"count":26},{"team":"Carlton","total":12.5,"leader":"Oliver Florent","leader_war":1.2,"top5":[["Oliver Florent",1.2,"Gen. Defender"],["Patrick Cripps",1.18,"Midfielder"],["Sam Walsh",1.18,"Midfielder"],["Nic Newman",1.09,"Gen. Defender"],["Marc Pittonet",0.92,"Ruck"]],"above_aa":0,"count":25},{"team":"West Coast","total":10.3,"leader":"Milan Murdock","leader_war":1.51,"top5":[["Milan Murdock",1.51,"Gen. Forward"],["Jake Waterman",1.47,"Key Forward"],["Bailey J. Williams",1.28,"Ruck"],["Reuben Ginbey",0.95,"Key Defender"],["Harley Reid",0.74,"Midfielder"]],"above_aa":1,"count":31},{"team":"Essendon","total":9.6,"leader":"Zach Merrett","leader_war":1.48,"top5":[["Zach Merrett",1.48,"Midfielder"],["Archie Roberts",1.21,"Gen. Defender"],["Peter Wright",1.04,"Ruck"],["Andrew McGrath",0.8,"Gen. Defender"],["Kyle Langford",0.77,"Gen. Forward"]],"above_aa":0,"count":31},{"team":"Richmond","total":6.8,"leader":"Jack Ross","leader_war":0.98,"top5":[["Jack Ross",0.98,"Midfielder"],["Tom Lynch",0.83,"Key Forward"],["Sam Lalor",0.74,"Midfielder"],["Seth Campbell",0.69,"Gen. Forward"],["Tim Taranto",0.65,"Midfielder"]],"above_aa":0,"count":30}];
+
+const SUMMARIES={
+"Geelong":"Six players producing at All-Australian level or above. No superstar leading the way, just sustained quality across every line. Bailey Smith has been outstanding through 12 rounds and his WAR of 2.17 sits comfortably in the elite tier. But the real story at Geelong is what is below him. Shaun Mannagh, Tom Stewart and Jeremy Cameron are all producing at the same level, which is why the Cats sit clear at the top of the competition.\n\nMost clubs need one or two players to carry the total. Geelong's is distributed. If Smith goes down, they do not fall apart. That is what 24.0 WAR from 27 active players looks like in practice.",
+"Sydney":"Heeney at 3.03 is in his own tier. The next closest player in the competition is Blakey at 2.44, and Blakey happens to also play for Sydney. No other club in the competition has two players producing at that level simultaneously.\n\nChad Warner and Brodie Grundy add genuine AA-level production below them. Sydney have quietly assembled three of the top 15 players in the competition. The total of 23.3 WAR is almost entirely driven by genuine elite production rather than fringe contributors padding the number. That kind of concentration wins finals.",
+"Fremantle":"Jackson and Treacy are essentially level at 2.17 and 2.15 WAR. Finding two players of that calibre at different positions is the kind of building block most clubs spend a decade trying to assemble. Fremantle appear to have done it while Shai Bolton adds a genuine third option at 1.53.\n\nThe squad total of 22.2 WAR reflects real depth. The Dockers are not a one-man band, they have three contributors sitting at or above All-Australian range and several others producing solidly beneath them. They are the most dangerous team in the competition on the numbers.",
+"Hawthorn":"Five players above 1.5 WAR. Five. Watson at 2.29 is the clear leader but what is impressive about Hawthorn's profile is the support cast. Sicily, Moore, Barrass and Hardwick are all producing at levels that would make them the best player at most clubs. The Hawks are building something serious.\n\nSam Mitchell has found a style that generates value from multiple sources rather than relying on one engine. That is harder to exploit and harder to stop.",
+"Gold Coast":"Petracca at 2.17 is the standout, but the real question for the Suns is what sits beneath him. Noble and Jeffrey provide AA-range production in the back half. Beyond those three there is a significant drop-off. Touk Miller at 1.38 and Ben Long at 1.34 are solid contributors but not elite ones.\n\nA 20.0 total is respectable but masks a top-heavy structure. If Petracca goes down, the Suns lose their only elite-tier player. For a finals side, that is a vulnerability the model makes clear.",
+"Greater Western Sydney":"No player above 1.6 WAR. Oliver leads at 1.54 which is a genuine starter-level contribution but not a franchise-player number. The Giants' total of 19.1 is almost entirely built through volume rather than stars, thirty players providing modest contributions rather than five or six providing elite ones.\n\nThat can work. But it requires everyone to stay healthy and it leaves them exposed when opponents target their best player, because the depth beneath Oliver is made up of starters rather than stars.",
+"Brisbane":"Five players above 1.5 WAR and no one above 2.0. Brisbane are the most balanced team in the top eight by this measure. No dominant superstar but a genuine group of high-quality contributors from the forward line through to the defensive 50. Cameron, Wilmot, Bailey, Zorko and Andrews are all producing at a level that would start for any team in the competition.\n\nThe Lions have built for depth rather than stars. Depending on your view of how finals work, that is either their greatest strength or their most significant limitation.",
+"Melbourne":"Max Gawn's 1.95 places him just outside elite territory but he remains the most impactful ruck in the competition. Kade Chandler at 1.76 has been one of the surprises of the year, producing at an AA level that has gone largely unnoticed in mainstream coverage.\n\nMelbourne's total of 18.4 reflects a team with a clear top tier and a reasonable supporting cast. The concern is what comes below Gawn and Chandler. The production drops quickly to starter level, which limits their ceiling in high-pressure finals situations.",
+"North Melbourne":"Xerri at 1.78 is a genuine AA-level ruck and one of the better ruck performances in the competition through 12 rounds. The Kangaroos have found production in unexpected places. Paul Curtis at 1.53 and Luke Parker at 1.45 are both contributing above the starter threshold.\n\nFor a club in a rebuild, generating 17.3 total WAR from this squad is a solid foundation. The ceiling is limited by the absence of a top-tier midfielder or forward, but the structural pieces are forming.",
+"St Kilda":"Wilkie at 2.23 is comfortably elite and completely invisible to the wider football conversation. He leads a Saints squad that has quietly assembled four AA-range contributors through 12 rounds. Sinclair, Wanganeen-Milera and Hall are all producing in the band between 1.5 and 2.0 WAR.\n\nSt Kilda's total of 17.1 slightly understates what they have. The distribution is healthy and Wilkie being ignored by the broader media is precisely the kind of inefficiency that WAR is designed to highlight.",
+"Western Bulldogs":"Bontempelli at 1.99 is operating just below elite level despite carrying one of the most recognisable names in the competition. Ed Richards alongside him at 1.80 is the less-heralded but equally important half of what makes the Bulldogs' midfield function.\n\nA squad total of 16.3 reflects a team with two genuine AA performers and a collection of starters beneath them. The Bulldogs are a top-eight side on the numbers but they are not a premiership contender unless someone below Bontempelli and Richards steps up significantly.",
+"Adelaide":"Milera leading at 1.6 is a surprise to many, but the model has consistently valued his defensive rebound game all season. The Crows have reasonable spread across the squad but no one operating at elite level. Dawson at 1.53 is the most recognisable name producing at a meaningful level.\n\nA total of 15.4 from a list that should be producing more. The forward line in particular is underperforming relative to expectations, and without a player above 1.6 WAR the ceiling for Adelaide's season is limited.",
+"Collingwood":"Nick Daicos at 1.22 WAR is the story the model keeps telling and the wider football world keeps ignoring. The AFL.com.au panel ranked him first in the competition. By WAR he sits 83rd. Jeremy Howe actually leads the Magpies at 1.71, which is appropriate given how dominant he has been when fit.\n\nA total of 15.2 from a list that was in the top four six months ago reflects how unevenly the production is spread. Howe, De Goey and Josh Daicos are the real contributors. Beyond them the drop-off is steep.",
+"Port Adelaide":"No player above 1.3 WAR. Butters and Horne-Francis are essentially equal at the top, both sitting just above the starter threshold. There is no genuine AA-level performer in this squad through Round 12 and the total of 13.9 reflects that.\n\nFor a club with the individual talent Port is supposed to possess, this is a damning number. Butters was one of the most hyped players in the competition entering the season. A WAR of 1.3 is solid but not the elite production his reputation suggests.",
+"Carlton":"Cripps and Walsh at 1.18 WAR apiece. The Blues' two marquee midfielders producing at the same modest level is one of the most interesting data points in the competition through 12 rounds. Oliver Florent leads the club at 1.2, which says everything about how the rest of the season has unfolded.\n\nA squad total of 12.5 is bottom-four territory and reflects real structural problems beneath the top line. Carlton have individual names that sound impressive but the collective production is well short of what a finals side needs.",
+"West Coast":"Murdock at 1.51 leading West Coast is both a surprise and a credit to how he has performed through an otherwise difficult season. Waterman at 1.47 and Bailey Williams at 1.28 provide some genuine foundation.\n\nA total of 10.3 WAR from 31 players is exactly what a bottom-two club looks like on the numbers. The Eagles are rebuilding and the production reflects where they are in that process. Harley Reid at 0.74 WAR is the conversation point. Significant hype, modest output so far.",
+"Essendon":"Merrett at 1.48 is the only Essendon player producing at a meaningful level. Archie Roberts at 1.21 has been solid and Wright at 1.04 provides some ruck value. Beyond that trio there is very little.\n\nA total of 9.6 from 31 players is the clearest sign yet that Essendon's rebuild has further to go than their supporters are willing to admit. No player above 1.5 WAR through 12 rounds is a structural problem, not a bad patch.",
+"Richmond":"Richmond's total of 6.8 WAR is the lowest in the competition by a significant margin. No player is above replacement level on an annualised basis. Jack Ross leads at 0.98, which in any other context would be a concerning number for a club's best performer.\n\nThis is a complete rebuild dressed up as a transition. The Tigers have genuine talent on the list but none of it has translated into production through 12 rounds. The gap between what they are supposed to be and what the model measures is wider than any other club in the competition."
+};
+
+const PC={'Midfielder':'#16a34a','Mid-Forward':'#16a34a','Gen. Forward':'#f59e0b','Key Forward':'#ea580c','Key Defender':'#2563eb','Gen. Defender':'#0891b2','Ruck':'#7c3aed'};
+const maxWar=24.0;
+
+function wCol(w){return w>=2.0?'#16a34a':w>=1.5?'#22c55e':w>=0.5?'#374151':'#9ca3af';}
+
+// League table
+const ltBody=document.getElementById('lt-body');
+TEAMS.forEach((t,i)=>{
+  const pct=(t.total/maxWar*100).toFixed(1);
+  const rank=i+1;
+  const rc=rank<=3?'top3':'';
+  ltBody.innerHTML+=`<div class="lt-row">
+    <div class="lt-rank ${rc}">${rank}</div>
+    <div class="lt-name-wrap">
+      <div class="lt-name">${t.team}</div>
+      <div class="lt-leader">Leader: ${t.leader} · ${t.leader_war.toFixed(2)} WAR</div>
+    </div>
+    <div class="lt-bar-wrap">
+      <div class="lt-bar-track"><div class="lt-bar-fill" style="width:${pct}%;"></div></div>
+    </div>
+    <div class="lt-war" style="color:${wCol(t.leader_war)}">${t.total.toFixed(1)}</div>
+  </div>`;
+});
+
+// Team sections
+const grid=document.getElementById('teams-grid');
+TEAMS.forEach((t,i)=>{
+  const rank=i+1;
+  const topWar=t.top5[0][1];
+  const summary=SUMMARIES[t.team]||'';
+  const paras=summary.split('\n\n').map(p=>`<p>${p}</p>`).join('');
+  const bars=t.top5.map(([nm,war,pos])=>{
+    const w=(war/topWar*100).toFixed(0);
+    const col=PC[pos]||'#16a34a';
+    const shortNm=nm.split(' ').slice(-1)[0];
+    return `<div class="sb-row">
+      <div class="sb-name">${nm.split(' ').map((w,i)=>i===nm.split(' ').length-1?`<strong>${w}</strong>`:w[0]+'.').join(' ')}</div>
+      <div class="sb-track"><div class="sb-fill" style="width:${w}%;background:${col};"></div></div>
+      <div class="sb-val" style="color:${col}">${war>=0?'+':''}${war.toFixed(2)}</div>
+    </div>`;
+  }).join('');
+  const aaText=t.above_aa>0?`${t.above_aa} player${t.above_aa>1?'s':''} at AA level or above`:'No players at AA level (1.5+)';
+  grid.innerHTML+=`<div class="team-card" id="team-${t.team.replace(/\s+/g,'-').toLowerCase()}">
+    <div class="team-card-head">
+      <div>
+        <div class="team-rank-badge">#${rank} overall · ${t.count} players</div>
+        <div class="team-name">${t.team}</div>
+      </div>
+      <div class="team-war-total">
+        <div class="team-war-num">${t.total.toFixed(1)}</div>
+        <div class="team-war-lbl">Total WAR</div>
+      </div>
+    </div>
+    <div class="team-body">
+      <div class="team-text">${paras}</div>
+      <div class="team-panel">
+        <div class="team-leader-card">
+          <div class="tlc-label">Team leader</div>
+          <div class="tlc-name">${t.leader}</div>
+          <div class="tlc-pos">${t.top5[0][2]}</div>
+          <div class="tlc-war">${t.leader_war.toFixed(2)} WAR</div>
+        </div>
+        <div class="squad-bars">${bars}</div>
+        <div class="aa-count">${aaText}</div>
+      </div>
+    </div>
+  </div>`;
+});
+</script>
+</body>
+</html>
