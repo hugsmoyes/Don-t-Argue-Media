@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why WAR Rates These Seven #1 At Their Position — Don't Argue Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4f7;--surface:#fff;--border:#e2e5eb;--accent:#16a34a;--accent-light:#dcfce7;--accent2:#ea580c;--accent3:#2563eb;--text:#111827;--text-mid:#374151;--muted:#6b7280;--muted-light:#9ca3af;--green:#22c55e;--red:#dc2626;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;font-size:16px;line-height:1.7;}
+a{color:inherit;text-decoration:none;}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.nav-brand{font-family:"Bebas Neue",sans-serif;font-size:22px;letter-spacing:.06em;}
+.nav-brand span{color:var(--accent);}
+.nav-back{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:var(--accent);}
+.page{max-width:820px;margin:0 auto;padding:56px 32px 96px;}
+.article-tag{display:inline-flex;align-items:center;gap:6px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:4px 12px;border-radius:4px;margin-bottom:20px;}
+.article-tag::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;display:inline-block;}
+h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(38px,6.5vw,64px);letter-spacing:.02em;line-height:.95;margin-bottom:20px;}
+h1 em{color:var(--accent);font-style:normal;}
+.meta{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.08em;color:var(--muted);margin-bottom:40px;display:flex;gap:20px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid var(--border);}
+.body-text{font-size:16px;line-height:1.8;color:var(--text-mid);}
+.body-text p{margin-bottom:20px;}
+.body-text strong{color:var(--text);font-weight:600;}
+.player-section{margin:48px 0;border-top:2px solid var(--border);padding-top:36px;}
+.player-section:first-of-type{border-top:none;padding-top:0;}
+.pos-tag{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:3px 10px;border-radius:3px;display:inline-block;margin-bottom:10px;}
+.pos-kf{background:rgba(234,88,12,.1);color:#ea580c;border:1px solid rgba(234,88,12,.3);}
+.pos-gf{background:rgba(245,158,11,.1);color:#d97706;border:1px solid rgba(245,158,11,.3);}
+.pos-mid{background:rgba(22,163,74,.1);color:#16a34a;border:1px solid rgba(22,163,74,.3);}
+.pos-mf{background:rgba(22,163,74,.08);color:#15803d;border:1px solid rgba(22,163,74,.25);}
+.pos-kd{background:rgba(37,99,235,.1);color:#2563eb;border:1px solid rgba(37,99,235,.3);}
+.pos-gd{background:rgba(8,145,178,.1);color:#0891b2;border:1px solid rgba(8,145,178,.3);}
+.pos-rk{background:rgba(124,58,237,.1);color:#7c3aed;border:1px solid rgba(124,58,237,.3);}
+.player-header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px;}
+.player-name{font-family:"Bebas Neue",sans-serif;font-size:clamp(36px,5vw,52px);letter-spacing:.02em;line-height:1;color:var(--text);}
+.player-war{font-family:"Bebas Neue",sans-serif;font-size:clamp(36px,5vw,52px);letter-spacing:.02em;line-height:1;color:var(--accent);}
+.player-sub{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;}
+.player-layout{display:grid;grid-template-columns:1fr 260px;gap:28px;align-items:start;margin-bottom:16px;}
+.player-text{font-size:15px;line-height:1.8;color:var(--text-mid);}
+.player-text p{margin-bottom:14px;}
+.player-text p:last-child{margin-bottom:0;}
+.player-text strong{color:var(--text);font-weight:600;}
+.radar-wrap{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;}
+.radar-title{font-family:"DM Mono",monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+canvas.radar{display:block;margin:0 auto;}
+.stat-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.stat-pill{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:6px 12px;text-align:center;}
+.stat-pill-val{font-family:"Bebas Neue",sans-serif;font-size:20px;line-height:1;color:var(--text);}
+.stat-pill-val.green{color:var(--accent);}
+.stat-pill-lbl{font-family:"DM Mono",monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:1px;}
+@media(max-width:640px){.player-layout{grid-template-columns:1fr;}.radar-wrap{order:-1;}.page{padding:40px 20px 80px;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-back">&#8592; Back</a>
+  <a href="index.html" class="nav-brand">DON'T ARGUE <span>MEDIA</span></a>
+</nav>
+<div class="page">
+  <div class="article-tag">Analysis &#183; R12 2026</div>
+  <h1>WHY WAR RATES<br>THESE <em>SEVEN</em> #1</h1>
+  <div class="meta">
+    <span>By Hugo Moyes</span>
+    <span>June 2026</span>
+    <span>WAR v35 &#183; Positional leaders</span>
+  </div>
+  <div class="body-text">
+    <p>The WAR model compares players within their position group. A key forward is never judged against a general defender. Only against other key forwards. That is what makes the positional leaders worth examining individually. These seven players are not just producing solid numbers. Against every comparable player in the competition, they are the standout in their role.</p>
+  </div>
+
+  <!-- JOSH TREACY -->
+  <div class="player-section">
+    <div class="pos-tag pos-kf">Key Forward &#183; #1</div>
+    <div class="player-header">
+      <div class="player-name">Josh Treacy</div>
+      <div class="player-war">2.15 WAR</div>
+    </div>
+    <div class="player-sub">Fremantle &#183; 12 games &#183; Competition rank #8</div>
+    <div class="player-layout">
+      <div class="player-text">
+        <p>Treacy does not lead the competition in goals. For a key forward, that is supposed to be the whole job. So why does WAR rate him the best key forward in the competition? His complete game.</p>
+        <p>He has kicked 28 goals in 12 games, but what separates him from every other key forward is that the scoring is just one part of it. A 28.1% score involvement rate, 2.3 marks on lead, 14.0 disposals per game ranking at the 97.9th percentile for key forwards. He competes around the ground, he takes marks, he creates for teammates. The model rewards players who contribute across every stat category, and Treacy does that better than any key forward in the competition right now.</p>
+        <p>AFL.com.au have him 16th. WAR has him 8th overall. That gap is the model doing exactly what it is supposed to.</p>
+        <div class="stat-row">
+          <div class="stat-pill"><div class="stat-pill-val green">2.33</div><div class="stat-pill-lbl">Goals/game</div></div>
+          <div class="stat-pill"><div class="stat-pill-val green">14.0</div><div class="stat-pill-lbl">Disposals</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">28.1%</div><div class="stat-pill-lbl">Score inv.</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">2.33</div><div class="stat-pill-lbl">Marks/lead</div></div>
+        </div>
+      </div>
+      <div class="radar-wrap">
+        <div class="radar-title">2026 Percentiles: Key Forward</div>
+        <canvas class="radar" id="r-treacy" width="228" height="228"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- NICK WATSON -->
+  <div class="player-section">
+    <div class="pos-tag pos-gf">Gen. Forward &#183; #1</div>
+    <div class="player-header">
+      <div class="player-name">Nick Watson</div>
+      <div class="player-war">2.29 WAR</div>
+    </div>
+    <div class="player-sub">Hawthorn &#183; 12 games &#183; Competition rank #3</div>
+    <div class="player-layout">
+      <div class="player-text">
+        <p>Nick Watson is the clearest example in the competition of a player whose WAR rank (3rd overall) and media rank (10th) tell very different stories. The disconnect comes down to position. Judged as a footballer among all footballers, Watson's 14.3 disposals look modest. Judged as a general forward against general forwards (which is what he is), his numbers are extraordinary.</p>
+        <p>Within the general forward pool, his 2.5 goals per game ranks at the 99.6th percentile. His score involvement percentage of 26.0% ranks at the 96.1st percentile. His xScore per shot of 0.49 ranks at the 81.1st percentile, meaning he is not just getting on the end of things but getting on the end of good things. The crumbing work (1.5 per game, 88.4th percentile) adds another layer to an already elite forward profile.</p>
+        <p>Watson's highlight reel is what the media sees. WAR sees the underlying numbers, and they are arguably even more impressive.</p>
+        <div class="stat-row">
+          <div class="stat-pill"><div class="stat-pill-val green">2.5</div><div class="stat-pill-lbl">Goals/game</div></div>
+          <div class="stat-pill"><div class="stat-pill-val green">26.0%</div><div class="stat-pill-lbl">Score inv.</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">0.49</div><div class="stat-pill-lbl">xScore/shot</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">1.5</div><div class="stat-pill-lbl">Crumbs</div></div>
+        </div>
+      </div>
+      <div class="radar-wrap">
+        <div class="radar-title">2026 Percentiles: Gen. Forward</div>
+        <canvas class="radar" id="r-watson" width="228" height="228"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAD WARNER -->
+  <div class="player-section">
+    <div class="pos-tag pos-mf">Mid-Forward &#183; #1</div>
+    <div class="player-header">
+      <div class="player-name">Chad Warner</div>
+      <div class="player-war">1.92 WAR</div>
+    </div>
+    <div class="player-sub">Sydney &#183; 12 games &#183; Competition rank #13</div>
+    <div class="player-layout">
+      <div class="player-text">
+        <p>Chad Warner was dropped from the AFL.com.au top 25 after a strong 2025. The model says he is producing at essentially the same level, sitting 13th in the competition and leading all mid-forwards in the WAR table.</p>
+        <p>The defining number is his post-clearance equity of 9.85, which ranks at the 98.8th percentile of all mid-forwards. That is the measure of how much value he extracts after a clearance, indicating someone who is routinely arriving in the right spot and making good decisions with the ball. His metres gained of 468.9 per game also ranks at the 98.8th percentile, meaning he is moving the ball further up the ground than almost anyone in his position group. Sydney's transition game runs largely through Warner, and it shows.</p>
+        <p>His goal output (1.25 per game, 88.8th percentile) is a bonus on top of the structural work he is doing. The model does not forget that just because the media has.</p>
+        <div class="stat-row">
+          <div class="stat-pill"><div class="stat-pill-val green">9.85</div><div class="stat-pill-lbl">Post-clear eq.</div></div>
+          <div class="stat-pill"><div class="stat-pill-val green">469</div><div class="stat-pill-lbl">Net metres</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">21.6</div><div class="stat-pill-lbl">Disposals</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">1.25</div><div class="stat-pill-lbl">Goals/game</div></div>
+        </div>
+      </div>
+      <div class="radar-wrap">
+        <div class="radar-title">2026 Percentiles: Mid-Forward</div>
+        <canvas class="radar" id="r-warner" width="228" height="228"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ISAAC HEENEY -->
+  <div class="player-section">
+    <div class="pos-tag pos-mid">Midfielder &#183; #1</div>
+    <div class="player-header">
+      <div class="player-name">Isaac Heeney</div>
+      <div class="player-war">3.03 WAR</div>
+    </div>
+    <div class="player-sub">Sydney &#183; 10 games &#183; Competition rank #1</div>
+    <div class="player-layout">
+      <div class="player-text">
+        <p>The number is 3.03. The next-best midfielder is Bailey Smith at 2.17. That 0.86-win gap between first and second is not a small edge. It is a different tier of production entirely.</p>
+        <p>His post-clearance equity of 12.3 ranks at the 99.7th percentile of all midfielders, meaning he extracts more value from clearance situations than 99.7% of his positional peers. Goals at 2.0 per game for a midfielder also ranks at the 99.7th percentile. He is averaging 26.7 disposals, 5.4 tackles, and has a net metres-gained figure that sits in the top 10% of all midfielders. There is not a meaningful statistical category where he is not elite.</p>
+        <p>AFL.com.au have him third. The model disagrees. There is no player in this dataset producing at the same rate.</p>
+        <div class="stat-row">
+          <div class="stat-pill"><div class="stat-pill-val green">3.03</div><div class="stat-pill-lbl">WAR</div></div>
+          <div class="stat-pill"><div class="stat-pill-val green">2.0</div><div class="stat-pill-lbl">Goals/game</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">26.7</div><div class="stat-pill-lbl">Disposals</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">5.4</div><div class="stat-pill-lbl">Tackles</div></div>
+        </div>
+      </div>
+      <div class="radar-wrap">
+        <div class="radar-title">2026 Percentiles: Midfielder</div>
+        <canvas class="radar" id="r-heeney" width="228" height="228"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- CALLUM WILKIE -->
+  <div class="player-section">
+    <div class="pos-tag pos-kd">Key Defender &#183; #1</div>
+    <div class="player-header">
+      <div class="player-name">Callum Wilkie</div>
+      <div class="player-war">2.23 WAR</div>
+    </div>
+    <div class="player-sub">St Kilda &#183; 12 games &#183; Competition rank #4</div>
+    <div class="player-layout">
+      <div class="player-text">
+        <p>Callum Wilkie ranks fourth in the entire competition and does not appear anywhere near AFL.com.au's top 25. This is the model doing something the media rarely does: giving full credit for elite defensive performance.</p>
+        <p>His intercepts average of 9.1 per game ranks at the 99.3rd percentile of all key defenders in the competition. His rebound 50s average of 5.25 ranks at the 97.9th percentile. His intercept marks of 3.33 per game rank at the 96.5th percentile. These are not marginally good numbers. They are the best key defender numbers in the competition across three of the most impactful defensive metrics available.</p>
+        <p>Wilkie never kicks bags. He does not rack up glamour possessions. He does the one thing a key defender is supposed to do: stop the ball getting into the forward line and return it quickly. Nobody in his position group is matching it. The model rewards that. The press box largely ignores it.</p>
+        <div class="stat-row">
+          <div class="stat-pill"><div class="stat-pill-val green">9.08</div><div class="stat-pill-lbl">Intercepts</div></div>
+          <div class="stat-pill"><div class="stat-pill-val green">5.25</div><div class="stat-pill-lbl">Rbd 50s</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">3.33</div><div class="stat-pill-lbl">Int. marks</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">23.3</div><div class="stat-pill-lbl">Disposals</div></div>
+        </div>
+      </div>
+      <div class="radar-wrap">
+        <div class="radar-title">2026 Percentiles: Key Defender</div>
+        <canvas class="radar" id="r-wilkie" width="228" height="228"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- NICK BLAKEY -->
+  <div class="player-section">
+    <div class="pos-tag pos-gd">Gen. Defender &#183; #1</div>
+    <div class="player-header">
+      <div class="player-name">Nick Blakey</div>
+      <div class="player-war">2.44 WAR</div>
+    </div>
+    <div class="player-sub">Sydney &#183; 12 games &#183; Competition rank #2</div>
+    <div class="player-layout">
+      <div class="player-text">
+        <p>Nick Blakey is the second-best player in the competition by WAR and did not make AFL.com.au's top 25. That is the sharpest single omission in the panel's May edition, and the numbers make it hard to explain away.</p>
+        <p>His 7.0 rebound 50s per game ranks at the 99.6th percentile of all general defenders, the highest in the group. His 26.1 disposals per game ranks at the 95.2nd percentile. His net metres gained of 858.8 per game ranks at the 95.2nd percentile. His score involvement percentage of 20.2% ranks at the 94.3rd percentile. In four of the five most important statistical categories for a general defender, he is in the top 6% of his position group.</p>
+        <p>Sydney have quietly assembled three players in the WAR top 15: Heeney (#1), Blakey (#2), and Grundy (#15). That is a remarkable concentration of production from one club.</p>
+        <div class="stat-row">
+          <div class="stat-pill"><div class="stat-pill-val green">7.0</div><div class="stat-pill-lbl">Rbd 50s</div></div>
+          <div class="stat-pill"><div class="stat-pill-val green">26.1</div><div class="stat-pill-lbl">Disposals</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">858</div><div class="stat-pill-lbl">Net metres</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">6.33</div><div class="stat-pill-lbl">Intercepts</div></div>
+        </div>
+      </div>
+      <div class="radar-wrap">
+        <div class="radar-title">2026 Percentiles: Gen. Defender</div>
+        <canvas class="radar" id="r-blakey" width="228" height="228"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- LUKE JACKSON -->
+  <div class="player-section">
+    <div class="pos-tag pos-rk">Ruck &#183; #1</div>
+    <div class="player-header">
+      <div class="player-name">Luke Jackson</div>
+      <div class="player-war">2.17 WAR</div>
+    </div>
+    <div class="player-sub">Fremantle &#183; 12 games &#183; Competition rank #7</div>
+    <div class="player-layout">
+      <div class="player-text">
+        <p>Within the ruck pool, Luke Jackson is the clear leader at 2.17 WAR, ahead of Max Gawn (1.95) and Brodie Grundy (1.91), both of whom are doing extraordinary work in the same position.</p>
+        <p>What separates Jackson from his ruck peers is that he contributes beyond the hitout count. His 5.5 tackles per game ranks at the 96.7th percentile of rucks, reflecting his work at ground level where most rucks do not operate. His post-clearance equity of 6.05 also ranks at the 96.7th percentile, meaning he is highly effective in the moments immediately following stoppages. His 19.0 disposals per game rank at the 94.4th percentile. He wins the hitout battle (25.6 per game) and then does things other rucks cannot.</p>
+        <p>Gawn remains the debate. His 1.95 WAR is genuinely elite and the model rates him as the second-best ruck in the competition. But Jackson's ground-level contested work, tackle output and stoppage impact give him the edge over 12 rounds.</p>
+        <div class="stat-row">
+          <div class="stat-pill"><div class="stat-pill-val green">5.5</div><div class="stat-pill-lbl">Tackles</div></div>
+          <div class="stat-pill"><div class="stat-pill-val green">25.6</div><div class="stat-pill-lbl">Hitouts</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">19.0</div><div class="stat-pill-lbl">Disposals</div></div>
+          <div class="stat-pill"><div class="stat-pill-val">6.05</div><div class="stat-pill-lbl">Post-clear eq.</div></div>
+        </div>
+      </div>
+      <div class="radar-wrap">
+        <div class="radar-title">2026 Percentiles: Ruck</div>
+        <canvas class="radar" id="r-jackson" width="228" height="228"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function drawRadar(id, labels, vals, color) {
+  var canvas = document.getElementById(id);
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height, cx = W/2, cy = H/2;
+  var r = Math.min(W,H)/2 - 34;
+  var n = labels.length, step = (Math.PI*2)/n, start = -Math.PI/2;
+  ctx.clearRect(0, 0, W, H);
+  // rings
+  [20,40,60,80,100].forEach(function(pct){
+    var rr = pct/100*r;
+    ctx.beginPath();
+    for(var i=0;i<n;i++){var a=start+i*step;i===0?ctx.moveTo(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr):ctx.lineTo(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr);}
+    ctx.closePath();
+    ctx.strokeStyle=pct===100?'#d0d4dc':'#e2e5eb';ctx.lineWidth=pct===100?1.2:.7;ctx.stroke();
+  });
+  // spokes
+  for(var i=0;i<n;i++){var a=start+i*step;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r);ctx.strokeStyle='#e2e5eb';ctx.lineWidth=.8;ctx.stroke();}
+  // data
+  ctx.beginPath();
+  vals.forEach(function(v,i){var pct=Math.min(v,100)/100,a=start+i*step,x=cx+Math.cos(a)*r*pct,y=cy+Math.sin(a)*r*pct;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+  ctx.closePath();ctx.fillStyle=color+'33';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();
+  // dots
+  vals.forEach(function(v,i){var pct=Math.min(v,100)/100,a=start+i*step;ctx.beginPath();ctx.arc(cx+Math.cos(a)*r*pct,cy+Math.sin(a)*r*pct,3.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
+  // labels
+  ctx.font='600 8px "DM Mono",monospace';ctx.fillStyle='#6b7280';ctx.textAlign='center';
+  labels.forEach(function(lbl,i){var a=start+i*step,lx=cx+Math.cos(a)*(r+19),ly=cy+Math.sin(a)*(r+19)+3.5;ctx.fillText(lbl.toUpperCase(),lx,ly);});
+}
+document.addEventListener('DOMContentLoaded', function() {
+  drawRadar('r-treacy',  ['Goals','Disposals','Score Inv','Marks/Lead','TI50','xSc/Shot'],  [87.9,97.9,95.0,93.6,82.1,60.7],  '#ea580c');
+  drawRadar('r-watson',  ['Goals','Score Inv','xSc/Shot','Crumbs','Marks/Lead','TI50'],     [99.6,96.1,81.1,88.4,70.0,77.6],  '#f59e0b');
+  drawRadar('r-warner',  ['Post-Clr Eq','Net Metres','Disposals','Score Inv','Goals','TI50'],[98.8,98.8,93.8,86.2,88.8,62.5],  '#16a34a');
+  drawRadar('r-heeney',  ['Post-Clr Eq','Disposals','Goals','Tackles','Net Metres','Score Inv'],[99.7,89.2,99.7,92.0,89.2,84.3], '#16a34a');
+  drawRadar('r-wilkie',  ['Intercepts','Rbd 50s','Int. Marks','Disposals','Net Metres','Def Loss%'],[99.3,97.9,96.5,72.0,97.9,82.6], '#2563eb');
+  drawRadar('r-blakey',  ['Rbd 50s','Net Metres','Disposals','Intercepts','Score Inv','Int. Marks'],[99.6,95.2,95.2,94.3,94.3,73.0], '#0891b2');
+  drawRadar('r-jackson', ['Tackles','Post-Clr Eq','Disposals','Hitouts','Score Inv','Hit Win%'],[96.7,96.7,94.4,87.8,78.0,76.7], '#7c3aed');
+});
+</script>
+</body>
+</html>
