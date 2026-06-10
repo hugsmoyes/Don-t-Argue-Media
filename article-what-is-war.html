@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is WAR? How We Measure Player Value   Don't Argue Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4f7;--surface:#fff;--border:#e2e5eb;--accent:#16a34a;--accent2:#ea580c;--text:#111827;--muted:#6b7280;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.65;}
+.page{max-width:800px;margin:0 auto;padding:36px 20px 100px;}
+header{border-bottom:1px solid var(--border);padding-bottom:24px;margin-bottom:32px;}
+.badge{display:inline-block;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;color:var(--accent);border:1px solid var(--accent);padding:3px 10px;margin-bottom:12px;text-transform:uppercase;}
+h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(38px,7vw,60px);letter-spacing:.02em;line-height:.92;margin-bottom:8px;}
+h1 em{color:var(--accent);font-style:normal;}
+.meta{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--muted);margin-top:6px;}
+p{font-size:15px;color:#374151;line-height:1.72;margin-bottom:16px;max-width:720px;}
+p strong{color:var(--text);}
+h2{font-family:"Bebas Neue",sans-serif;font-size:28px;letter-spacing:.04em;margin:36px 0 10px;}
+.pull{background:var(--surface);border-left:3px solid var(--accent);padding:14px 18px;margin:24px 0;font-size:15px;color:#374151;line-height:1.65;}
+.pull.red{border-left-color:var(--accent2);}
+.tbl-wrap{overflow-x:auto;margin:24px 0;}
+table{border-collapse:collapse;width:100%;font-size:13px;}
+thead th{font-family:"DM Mono",monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--border);text-align:left;}
+tbody td{padding:8px 10px;border-bottom:1px solid rgba(0,0,0,.05);vertical-align:middle;}
+.rk{font-family:"Bebas Neue",sans-serif;font-size:18px;color:var(--muted);}
+.pn{font-weight:500;font-size:13px;}
+.pt{font-family:"DM Mono",monospace;font-size:9px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;}
+.wv{font-family:"Bebas Neue",sans-serif;font-size:18px;color:var(--text);}
+.wv.elite{color:var(--accent);}
+.wv.aa{color:#059669;}
+.tbl-head{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0;}
+@media(max-width:580px){.two-col{grid-template-columns:1fr;}}
+.omit-name{font-weight:500;font-size:14px;margin-bottom:2px;}
+.omit-war{font-family:"Bebas Neue",sans-serif;font-size:26px;color:var(--accent);}
+.omit-meta{font-family:"DM Mono",monospace;font-size:9px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;}
+.omit-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);padding:12px 16px;}
+.dam-topnav{position:sticky;top:0;z-index:9999;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid #e2e5eb;padding:0 28px;height:50px;display:flex;align-items:center;justify-content:space-between;}
+.dam-topnav-back{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;text-decoration:none;display:flex;align-items:center;gap:6px;}
+.dam-topnav-back:hover{color:#16a34a;}
+.dam-topnav-brand{font-family:"Bebas Neue",sans-serif;font-size:17px;letter-spacing:.06em;color:#111827;text-decoration:none;}
+.dam-topnav-brand span{color:#16a34a;}
+</style>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMTExODI3Ii8+PHRleHQgeD0iMTYiIHk9IjIwIiBmb250LWZhbWlseT0iSW1wYWN0LEFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5EQTwvdGV4dD48cmVjdCB4PSIwIiB5PSIyNiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjYiIGZpbGw9IiMxNmEzNGEiLz48L3N2Zz4=" type="image/svg+xml">
+</head>
+<body>
+<div class="dam-topnav"><a href="index.html" class="dam-topnav-back">&#8592; Back</a><a href="index.html" class="dam-topnav-brand" style="line-height:0;"><svg viewBox="0 0 178 38" height="36" xmlns="http://www.w3.org/2000/svg" style="display:block;"><text x="0" y="22" font-family="'Bebas Neue',Impact,sans-serif" font-size="22" fill="#111827" letter-spacing="1">DON'T ARGUE</text><rect x="0" y="26" width="178" height="2" fill="#16a34a"/><text x="1" y="36" font-family="'DM Mono',monospace" font-size="9" fill="#6b7280" letter-spacing="5">MEDIA</text></svg></a></div>
+<div class="page">
+<header>
+  <div class="badge">WAR &#183; Explainer</div>
+  <h1>WHAT IS <em>WAR</em>?</h1>
+  <div class="meta">How we measure player value in AFL football</div>
+</header>
+
+<p>WAR stands for Wins Above Replacement. The concept comes from baseball, where it has been used for decades to answer a simple question: how many wins does this player add to their team compared to a replacement level player, someone you could pick up off the waiver wire?</p>
+<p>In AFL, we have adapted the framework to work with Champion Data's player-level stats. The goal is the same. A single number that captures a player's total contribution and makes them directly comparable regardless of position or role.</p>
+
+<h2>Why WAR?</h2>
+<p>Football has always had statistics. What it has lacked is a single number that tells you how much a player is actually worth. Disposals tell you how often someone touches the ball. Goals tell you how often a forward scores. Neither tells you whether the player made their team better. WAR is an attempt to answer that question properly.</p>
+<p>The model goes beyond face value. A player who accumulates disposals in space is treated differently from one who wins the ball in contested situations and moves it efficiently forward. A defender who generates eight intercepts and repels a forward line is valued for that work in a way that counting stats simply cannot capture. The model is looking for impact, not just activity.</p>
+<p>The result rewards complete players. The players who rank highest in WAR are not always the ones who dominate the highlight reel or the disposal tally. They are the ones who contribute across every relevant category in their role, do it consistently, do it for long stretches of the season, and do it in ways that directly influence their team's ability to win football games. That is the number we are trying to produce.</p>
+
+<h2>The 21 stats</h2>
+<p>WAR uses 21 per-game stats. They cover five categories: offensive output including goals, score involvements, threat rating, expected score metrics and contested marks; transition work including I50 kick retention, score launches, net metres gained, ball use equity and retained disposals; defensive impact including intercepts, intercept marks, rebound 50s and one percenters; contest work including hard ball gets, stoppage clearances, tackles and hitouts to advantage; and two negative stats that penalise turnovers and defensive contest losses.</p>
+
+<p>The weighting matters as much as the selection. Goals are weighted at 3.5 times their z-score because a direct scoring act is the highest-value event in the game. Intercepts and intercept marks are each weighted at 1.5, reflecting how directly they change defensive situations. Tackles and one percenters sit at 1.0. The result is a composite that rewards the events that most strongly predict winning, rather than treating a goal and a handball as equivalent contributions because both show up in the disposal count.</p>
+
+<p>Three of the 21 stats are derived rather than directly measured. Retained disposals multiplies a player's disposal count by their disposal retention rate, so that a player who gets 25 disposals and keeps 78 percent of them rates higher than one who gets 25 disposals and keeps 58 percent. Adjusted clangers removes the clangers that result from legitimate contested attempts, because forcing the issue in a hard contest and turning it over is a different act from a lazy kick that goes straight to the opposition. Defensive contests lost estimates how much value a player concedes in direct one-on-one defensive situations.</p>
+
+<h2>The calculation pipeline</h2>
+<p><strong>Step 1.</strong> Each stat is z-scored across the full 544-player population, with values capped at plus or minus 3.0 to prevent outliers from distorting the model.</p>
+<p><strong>Step 2.</strong> Each z-scored stat is multiplied by its category weight. Goals are worth 3.5 times their z-score. Intercepts are worth 1.5. Tackles are worth 1.0. The weights reflect how strongly each stat predicts winning.</p>
+<p><strong>Step 3.</strong> The weighted stats are summed into a single composite score per player per game.</p>
+<p><strong>Step 4.</strong> The composite is z-scored within each position group. A key forward is only compared to other key forwards. A ruck is only compared to other rucks. This is the step that makes WAR position-neutral and prevents the model from systematically undervaluing defenders simply because they do not kick goals. A key defender who produces 9 intercepts in a game is not measured against a midfielder who kicks 3 goals and misses the intercept category entirely. They are each measured against the best and worst versions of their own role.</p>
+<p><strong>Step 5.</strong> The 25th percentile within each position group becomes the replacement baseline. Players below that threshold produce negative WAR. Players above it produce positive WAR proportional to how far above the line they sit.</p>
+<p><strong>Step 6.</strong> The baseline-adjusted score is multiplied by 0.68 and then by the number of games played. This is where WAR becomes accumulative. A player who contributes at an elite level across 13 games produces more WAR than a player who contributes at the same per-game rate across 6 games. Availability and consistency are rewarded, not just peak performance.</p>
+<p><strong>Step 7.</strong> A positional scarcity multiplier is applied to reflect the difficulty of finding high-quality players at specialised positions. Rucks, key forwards and key defenders receive a bonus because elite performers at those positions are rare and hard to replace. General forwards and general defenders receive a small reduction because those roles are more interchangeable. Midfielders are the baseline at 1.00.</p>
+
+<h2>WAR as an accumulative stat</h2>
+<p>WAR accumulates with games played, and that is not a cosmetic feature of the model. It reflects a real truth about football: a player who shows up every week and contributes at a high level creates more value for their team than a player who produces identical numbers in fewer games. Consider two players with the same per-game quality. One plays all 23 rounds, the other misses six through injury. The first produces nearly 25 percent more WAR simply by being available. A player averaging 0.25 WAR per game across a full season contributes 5.75 wins to their team. The same player missing six games contributes 4.25. Durability and consistency are part of the job, and the model prices them accordingly.</p>
+
+<p>This also means WAR changes throughout the season in a way that reflects genuine changes in contribution. A player who starts the year in poor form and finds it in the second half will show that arc in the numbers. A player who contributes for six weeks and then misses six through suspension will see their total stall while teammates continue to accumulate. The model does not flatten those differences by annualising performance. It records what actually happened, game by game, and totals it up.</p>
+
+<h2>What WAR does not measure</h2>
+<p>WAR is a statistical model. It works from the numbers Champion Data records. It does not see leadership, pressure under finals conditions, the impact of a player on team culture or the strategic value of a player's movement that does not show up in box-score events. It also does not adjust for role within a team structure. A player asked to play a limiting role will produce lower WAR than a player given freedom to roam, even if the limiting role is the more important one for the team.</p>
+<p>These are real limitations. The model is a starting point, not a verdict. But it is a more rigorous starting point than disposal counts and a more honest one than reputation.</p>
+
+</div>
+</body>
+</html>
