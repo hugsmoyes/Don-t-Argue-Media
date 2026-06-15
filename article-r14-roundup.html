@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Club's Best: Round 14   Don't Argue Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4f7;--surface:#fff;--border:#e2e5eb;--accent:#16a34a;--text:#111827;--muted:#6b7280;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.65;}
+
+.page{max-width:680px;margin:0 auto;padding:40px 20px 100px;}
+
+/* Header */
+header{border-bottom:2px solid var(--text);padding-bottom:20px;margin-bottom:28px;}
+.badge{display:inline-block;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;color:var(--accent);border:1px solid var(--accent);padding:3px 10px;margin-bottom:12px;text-transform:uppercase;}
+h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(42px,8vw,64px);letter-spacing:.02em;line-height:.9;margin-bottom:8px;}
+h1 em{color:var(--accent);font-style:normal;}
+.meta{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--muted);}
+.intro{font-size:15px;color:#374151;line-height:1.7;margin-top:20px;padding-top:20px;border-top:1px solid var(--border);}
+
+/* Standouts strip */
+.standouts{margin:28px 0 36px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 0;}
+.standouts-label{font-family:"DM Mono",monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.standout-row{display:flex;align-items:baseline;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.05);}
+.standout-row:last-child{border-bottom:none;}
+.sr-left{display:flex;align-items:baseline;gap:10px;}
+.sr-num{font-family:"Bebas Neue",sans-serif;font-size:13px;color:var(--muted);width:16px;}
+.sr-name{font-weight:600;font-size:14px;color:var(--text);}
+.sr-team{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.sr-war{font-family:"Bebas Neue",sans-serif;font-size:20px;color:var(--accent);letter-spacing:.02em;}
+
+/* Entries */
+.section-label{font-family:"DM Mono",monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0;}
+.entry{padding:22px 0;border-bottom:1px solid var(--border);}
+.entry-meta{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.entry-meta .res-w{color:var(--accent);font-weight:600;}
+.entry-meta .res-l{color:#dc2626;font-weight:600;}
+.entry-name-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;}
+.entry-player{font-size:20px;font-weight:700;color:var(--text);letter-spacing:-0.2px;line-height:1;}
+.entry-war{font-family:"Bebas Neue",sans-serif;font-size:26px;color:var(--accent);letter-spacing:.02em;line-height:1;}
+.entry-stats{font-family:"DM Mono",monospace;font-size:9.5px;color:var(--muted);margin-bottom:10px;letter-spacing:.02em;}
+.entry-body{font-size:14px;color:#374151;line-height:1.72;max-width:620px;}
+
+/* Nav */
+.dam-topnav{position:sticky;top:0;z-index:9999;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid #e2e5eb;padding:0 28px;height:50px;display:flex;align-items:center;justify-content:space-between;}
+.dam-topnav-back{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;text-decoration:none;}
+.dam-topnav-back:hover{color:var(--accent);}
+.dam-topnav-brand{font-family:"Bebas Neue",sans-serif;font-size:17px;letter-spacing:.06em;color:#111827;text-decoration:none;}
+.dam-topnav-brand span{color:var(--accent);}
+.footnote{font-family:"DM Mono",monospace;font-size:9px;color:var(--muted);padding-top:16px;margin-top:4px;}
+</style>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMTExODI3Ii8+PHRleHQgeD0iMTYiIHk9IjIwIiBmb250LWZhbWlseT0iSW1wYWN0LEFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5EQTwvdGV4dD48cmVjdCB4PSIwIiB5PSIyNiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjYiIGZpbGw9IiMxNmEzNGEiLz48L3N2Zz4=" type="image/svg+xml">
+</head>
+<body>
+
+<div class="dam-topnav">
+  <a href="index.html" class="dam-topnav-back">&#8592; Back</a>
+  <a href="index.html" class="dam-topnav-brand" style="line-height:0;"><svg viewBox="0 0 178 38" height="36" xmlns="http://www.w3.org/2000/svg" style="display:block;"><text x="0" y="22" font-family="'Bebas Neue',Impact,sans-serif" font-size="22" fill="#111827" letter-spacing="1">DON'T ARGUE</text><rect x="0" y="26" width="178" height="2" fill="#16a34a"/><text x="1" y="36" font-family="'DM Mono',monospace" font-size="9" fill="#6b7280" letter-spacing="5">MEDIA</text></svg></a>
+</div>
+
+<div class="page">
+
+  <header>
+    <div class="badge">WAR &#183; Round 14 &#183; Club Best</div>
+    <h1>YOUR CLUB'S <em>BEST</em>:<br>ROUND 14</h1>
+    <div class="meta">WAR v36 &nbsp;&#183;&nbsp; 2026 Season</div>
+    <p class="intro">Four clubs had the bye, but the seven games that did get played produced one of the heaviest ruck rounds of the year. Jordan Dawson's 32-disposal, three-goal demolition of the Bulldogs is the standout of the round, and it isn't close. Behind him, Jordon Sweet and Max Gawn both turned in performances big enough to carry their side on their own, while Liam Ryan's six-goal salvo up forward kept St Kilda's night alive against the Giants.</p>
+  </header>
+
+  <div class="standouts">
+    <div class="standouts-label">Round Standouts</div>
+    <div class="standout-row">
+      <div class="sr-left">
+        <span class="sr-num">1</span>
+        <span class="sr-name">Jordan Dawson</span>
+        <span class="sr-team">Adelaide &nbsp;&#183;&nbsp; 32d 3g &nbsp;&#183;&nbsp; W 118&#8211;63</span>
+      </div>
+      <span class="sr-war">0.436</span>
+    </div>
+    <div class="standout-row">
+      <div class="sr-left">
+        <span class="sr-num">2</span>
+        <span class="sr-name">Jordon Sweet</span>
+        <span class="sr-team">Port Adelaide &nbsp;&#183;&nbsp; 35 hitouts 9cl &nbsp;&#183;&nbsp; L 86&#8211;89</span>
+      </div>
+      <span class="sr-war">0.311</span>
+    </div>
+    <div class="standout-row">
+      <div class="sr-left">
+        <span class="sr-num">3</span>
+        <span class="sr-name">Max Gawn</span>
+        <span class="sr-team">Melbourne &nbsp;&#183;&nbsp; 29 hitouts 2g &nbsp;&#183;&nbsp; W 91&#8211;46</span>
+      </div>
+      <span class="sr-war">0.293</span>
+    </div>
+  </div>
+
+  <div class="section-label">Every Club</div>
+
+  <div class="entry">
+    <div class="entry-meta">Adelaide &nbsp;&#183;&nbsp; <span class="res-w">W</span> 118&#8211;63 vs Western Bulldogs</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Jordan Dawson</span>
+      <span class="entry-war">0.436</span>
+    </div>
+    <div class="entry-stats">32d &nbsp;&#183;&nbsp; 3g &nbsp;&#183;&nbsp; 8t &nbsp;&#183;&nbsp; 7 cl &nbsp;&#183;&nbsp; 12 si</div>
+    <p class="entry-body">Thirty-two disposals, three goals, eight tackles and six inside 50s in a 55-point demolition. Dawson was at the centre of everything for Adelaide, adding 12 score involvements and seven clearances on top of it. Sam Berry's 11 clearances kept the midfield humming behind him, but this was Dawson's afternoon from start to finish. The best individual round of the season so far, in a result that was never in doubt.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">Port Adelaide &nbsp;&#183;&nbsp; <span class="res-l">L</span> 86&#8211;89 vs Sydney</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Jordon Sweet</span>
+      <span class="entry-war">0.311</span>
+    </div>
+    <div class="entry-stats">35 hitouts &nbsp;&#183;&nbsp; 9 cl &nbsp;&#183;&nbsp; 13 si &nbsp;&#183;&nbsp; 2g &nbsp;&#183;&nbsp; 8 sl</div>
+    <p class="entry-body">Nine clearances, 35 hitouts and 13 score involvements from the ruck, with two goals on top. Sweet was enormous all day, the kind of performance that usually wins games on its own. Zak Butters added 27 disposals and six intercepts trying to drag Port over the line. It wasn't enough - Sydney snuck home by three - but Sweet's afternoon deserves to be remembered regardless of the result.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">Melbourne &nbsp;&#183;&nbsp; <span class="res-w">W</span> 91&#8211;46 vs Essendon</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Max Gawn</span>
+      <span class="entry-war">0.293</span>
+    </div>
+    <div class="entry-stats">29 hitouts &nbsp;&#183;&nbsp; 10 cl &nbsp;&#183;&nbsp; 2g &nbsp;&#183;&nbsp; 5 ic &nbsp;&#183;&nbsp; 7 si</div>
+    <p class="entry-body">Two goals, ten clearances, five intercepts and 29 hitouts from the ruck in a 45-point win. Gawn's influence stretched from the centre bounce to deep in defence all afternoon. Kysaiah Pickett kicked three goals and racked up 32 disposals of his own, but Gawn's was the more complete game - he was doing the heavy lifting that let everyone else play loose footy. Essendon had no answer for either of them.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">St Kilda &nbsp;&#183;&nbsp; <span class="res-w">W</span> 95&#8211;86 vs Greater Western Sydney</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Liam Ryan</span>
+      <span class="entry-war">0.251</span>
+    </div>
+    <div class="entry-stats">6g &nbsp;&#183;&nbsp; 2b &nbsp;&#183;&nbsp; 11d &nbsp;&#183;&nbsp; 9 si &nbsp;&#183;&nbsp; 2 cm</div>
+    <p class="entry-body">Six goals from just 11 disposals - Ryan was lethal in front of the sticks, adding two contested marks and nine score involvements off barely a touch count. Nasiah Wanganeen-Milera was the engine room story with 32 disposals and 775 metres gained, but it was Ryan's finishing that put the game away. Six majors is six majors, and St Kilda needed every one of them in a nine-point arm wrestle with the Giants.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">North Melbourne &nbsp;&#183;&nbsp; <span class="res-w">W</span> 73&#8211;70 vs West Coast</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Tristan Xerri</span>
+      <span class="entry-war">0.234</span>
+    </div>
+    <div class="entry-stats">22 hitouts &nbsp;&#183;&nbsp; 6 cl &nbsp;&#183;&nbsp; 4 ic &nbsp;&#183;&nbsp; 4 icm &nbsp;&#183;&nbsp; 2 cm</div>
+    <p class="entry-body">Six clearances, four intercepts, four intercept marks and two contested marks from the ruck in a three-point win that came right down to the wire. Xerri was doing damage at both ends of the ground all day. Harry Sheezel's 33 disposals and ten clearances were the bigger box score, and it was close enough that either could be the story. North Melbourne needed every bit of both in a game decided by a kick.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">Brisbane &nbsp;&#183;&nbsp; <span class="res-w">W</span> 114&#8211;79 vs Richmond</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Will Ashcroft</span>
+      <span class="entry-war">0.231</span>
+    </div>
+    <div class="entry-stats">38d &nbsp;&#183;&nbsp; 14 si &nbsp;&#183;&nbsp; 10m &nbsp;&#183;&nbsp; 8 cl &nbsp;&#183;&nbsp; 2g</div>
+    <p class="entry-body">Thirty-eight disposals, 14 score involvements, ten marks and eight clearances, with two goals to put a bow on it. Ashcroft was everywhere in a 35-point demolition, the kind of all-around game that drags a midfield with it. Lachie Neale chipped in with 28 disposals and six clearances of his own, but this was Ashcroft's stage from the first bounce. Richmond simply had no answer once the Lions' midfield got rolling.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">Geelong &nbsp;&#183;&nbsp; <span class="res-w">W</span> 102&#8211;58 vs Gold Coast</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Tom Atkins</span>
+      <span class="entry-war">0.208</span>
+    </div>
+    <div class="entry-stats">8t &nbsp;&#183;&nbsp; 32 pa &nbsp;&#183;&nbsp; 6 cl &nbsp;&#183;&nbsp; 6 sl &nbsp;&#183;&nbsp; 17d</div>
+    <p class="entry-body">Eight tackles and 32 pressure acts headline a day where Atkins was Geelong's relentless pest, adding six clearances and six score launches from just 17 disposals. Max Holmes had the bigger night on the ball with 31 touches and 805 metres gained, but Atkins' work without the ball set the tone for a 44-point win that was never seriously challenged.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">Richmond &nbsp;&#183;&nbsp; <span class="res-l">L</span> 79&#8211;114 vs Brisbane</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Tim Taranto</span>
+      <span class="entry-war">0.198</span>
+    </div>
+    <div class="entry-stats">29d &nbsp;&#183;&nbsp; 6 cl &nbsp;&#183;&nbsp; 5 ic &nbsp;&#183;&nbsp; 2g &nbsp;&#183;&nbsp; 5 i50</div>
+    <p class="entry-body">Twenty-nine disposals, six clearances, five intercepts and two goals from Taranto in a 35-point loss - by far the best of a tough day for the Tigers. Dion Prestia's 27 disposals and seven clearances kept the midfield honest alongside him, but neither could slow Brisbane's midfield once it got moving. A heavy beating for Richmond, with Taranto the rare bright spot in a game that got away from them early.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">West Coast &nbsp;&#183;&nbsp; <span class="res-l">L</span> 70&#8211;73 vs North Melbourne</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Jobe Shanahan</span>
+      <span class="entry-war">0.193</span>
+    </div>
+    <div class="entry-stats">3g &nbsp;&#183;&nbsp; 5 cm &nbsp;&#183;&nbsp; 5 icm &nbsp;&#183;&nbsp; 3 ic &nbsp;&#183;&nbsp; 11d</div>
+    <p class="entry-body">Three goals, five contested marks and five intercept marks from just 11 disposals. Shanahan did more with less than anyone else on the ground, popping up everywhere as a target forward and an intercept threat behind the ball. West Coast lost by three points in a game that went right down to the wire, and Shanahan's afternoon was the one genuine bright spot in another narrow loss for the Eagles.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">Gold Coast &nbsp;&#183;&nbsp; <span class="res-l">L</span> 58&#8211;102 vs Geelong</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Noah Anderson</span>
+      <span class="entry-war">0.190</span>
+    </div>
+    <div class="entry-stats">29d &nbsp;&#183;&nbsp; 11t &nbsp;&#183;&nbsp; 6 cl &nbsp;&#183;&nbsp; 9 si &nbsp;&#183;&nbsp; 5 i50</div>
+    <p class="entry-body">Twenty-nine disposals, 11 tackles and six clearances in a 44-point loss. Anderson covered the ground all day for a Gold Coast side that was outclassed everywhere else. Matt Rowell chipped in with 26 disposals and six clearances of his own, but neither could turn the tide against a dominant Geelong outfit. Anderson's effort level never dropped, even as the margin blew out around him.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">Essendon &nbsp;&#183;&nbsp; <span class="res-l">L</span> 46&#8211;91 vs Melbourne</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Will Setterfield</span>
+      <span class="entry-war">0.186</span>
+    </div>
+    <div class="entry-stats">34d &nbsp;&#183;&nbsp; 7 cl &nbsp;&#183;&nbsp; 10 si &nbsp;&#183;&nbsp; 4 ic &nbsp;&#183;&nbsp; 6 i50</div>
+    <p class="entry-body">Thirty-four disposals, seven clearances, ten score involvements and four intercepts in a 45-point loss. Setterfield was Essendon's best by a distance, doing the running and the ball-winning while the scoreboard ran away from his side. Mason Redman's eight intercepts down back were a lone highlight elsewhere. A heavy day for the Bombers, with Setterfield carrying more than his share of it.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">Greater Western Sydney &nbsp;&#183;&nbsp; <span class="res-l">L</span> 86&#8211;95 vs St Kilda</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Brent Daniels</span>
+      <span class="entry-war">0.178</span>
+    </div>
+    <div class="entry-stats">31d &nbsp;&#183;&nbsp; 10 cl &nbsp;&#183;&nbsp; 16 cp &nbsp;&#183;&nbsp; 8 si &nbsp;&#183;&nbsp; 6t</div>
+    <p class="entry-body">Thirty-one disposals, ten clearances and 16 contested possessions - Daniels was the engine of the Giants' midfield all day. Clayton Oliver added 35 disposals and eight clearances of his own, the two of them doing the bulk of GWS's work at the coalface. It wasn't enough to get past a clinical St Kilda side, but Daniels' afternoon was the one real positive from a frustrating nine-point loss.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">Sydney &nbsp;&#183;&nbsp; <span class="res-w">W</span> 89&#8211;86 vs Port Adelaide</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Brodie Grundy</span>
+      <span class="entry-war">0.173</span>
+    </div>
+    <div class="entry-stats">22 hitouts &nbsp;&#183;&nbsp; 9 cl &nbsp;&#183;&nbsp; 6 ic &nbsp;&#183;&nbsp; 19 cp &nbsp;&#183;&nbsp; 26d</div>
+    <p class="entry-body">Nine clearances, six intercepts, 22 hitouts and 19 contested possessions from the ruck in a three-point win. Grundy was the foundation Sydney built their narrow victory on, winning first use of the ball all day. Riley Bice's seven intercepts were valuable across half-back, but Grundy's work at the source of every contest is what got the Swans home in a game decided by a single kick.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-meta">Western Bulldogs &nbsp;&#183;&nbsp; <span class="res-l">L</span> 63&#8211;118 vs Adelaide</div>
+    <div class="entry-name-row">
+      <span class="entry-player">Ed Richards</span>
+      <span class="entry-war">0.134</span>
+    </div>
+    <div class="entry-stats">28d &nbsp;&#183;&nbsp; 9t &nbsp;&#183;&nbsp; 11 i50 &nbsp;&#183;&nbsp; 5 cl &nbsp;&#183;&nbsp; 721 mg</div>
+    <p class="entry-body">Twenty-eight disposals, nine tackles, 11 inside 50s and 721 metres gained in a 55-point hiding. Richards never stopped trying, dragging the ball forward time and again for a Bulldogs side that had no answer for Adelaide all day. Matthew Kennedy's 29 disposals were the only other real positive. A horror afternoon for the Dogs, with Richards the one player who didn't go missing.</p>
+  </div>
+
+  <p class="footnote">Rankings by WAR (Wins Above Replacement), v36. Carlton, Collingwood, Fremantle and Hawthorn were on the bye in Round 14.</p>
+
+</div>
+</body>
+</html>
