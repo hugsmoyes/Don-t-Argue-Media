@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AFL WAR All-Australian 2026 — R13</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4f7;--surface:#ffffff;--card:#ffffff;--border:#e2e5eb;--accent:#16a34a;--accent2:#ea580c;--text:#111827;--muted:#6b7280;--green:#22c55e;--red:#dc2626;--gold:#ca8a04;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;}
+.page{max-width:960px;margin:0 auto;padding:32px 20px 80px;}
+header{border-bottom:1px solid var(--border);padding-bottom:22px;margin-bottom:26px;}
+.badge{display:inline-block;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;color:var(--accent);border:1px solid var(--accent);padding:3px 10px;margin-bottom:10px;text-transform:uppercase;}
+h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(40px,7vw,66px);letter-spacing:.02em;line-height:.9;margin-bottom:5px;}
+h1 span{color:var(--accent);}
+.meta{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--muted);}
+.capbar{background:rgba(255,215,0,.05);border:1px solid rgba(255,215,0,.2);padding:10px 16px;display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+.cap-lbl{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+.cap-name{font-weight:500;font-size:14px;}
+.cap-war{font-family:"Bebas Neue",sans-serif;font-size:26px;color:var(--gold);margin-left:auto;}
+/* Ground */
+.ground{background:#1a2e15;border-radius:120px/70px;border:2px solid #2c4a25;position:relative;padding:18px 14px 14px;margin-bottom:20px;}
+.ground::before{content:'';position:absolute;inset:9px;border:1px solid rgba(255,255,255,.06);border-radius:110px/60px;pointer-events:none;}
+.ground::after{content:'';position:absolute;left:8%;right:8%;top:50%;height:1px;background:rgba(255,255,255,.06);pointer-events:none;}
+.cc{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:14%;aspect-ratio:1;border:1px solid rgba(255,255,255,.09);border-radius:50%;pointer-events:none;}
+.f50t{position:absolute;top:5%;left:14%;right:14%;height:31%;border:1px solid rgba(255,255,255,.07);border-radius:0 0 50% 50% / 0 0 80% 80%;border-top:none;pointer-events:none;}
+.f50b{position:absolute;bottom:3%;left:14%;right:14%;height:31%;border:1px solid rgba(255,255,255,.07);border-radius:50% 50% 0 0 / 80% 80% 0 0;border-bottom:none;pointer-events:none;}
+.row{display:flex;justify-content:center;gap:8px;margin-bottom:8px;position:relative;z-index:2;}
+.rl{font-family:"DM Mono",monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.18);position:absolute;left:8px;top:50%;transform:translateY(-50%);}
+/* Player card on ground */
+.pc{background:rgba(12,18,12,.88);border:1px solid rgba(255,255,255,.11);padding:6px 8px;text-align:center;min-width:95px;max-width:115px;cursor:pointer;transition:all .2s;position:relative;border-radius:2px;}
+.pc:hover{background:rgba(18,28,18,.96);border-color:var(--accent);transform:translateY(-2px);z-index:20;}
+.pc:hover .tt{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+.pc .init{font-family:"Bebas Neue",sans-serif;font-size:10px;color:rgba(255,255,255,.3);position:absolute;top:2px;left:4px;}
+.pc .pname{font-weight:500;font-size:10px;line-height:1.2;}
+.pc .pteam{font-family:"DM Mono",monospace;font-size:7px;letter-spacing:.05em;text-transform:uppercase;margin-top:1px;}
+.pc .pwar{font-family:"Bebas Neue",sans-serif;font-size:17px;line-height:1;margin-top:2px;}
+.pc.cap{border-color:var(--gold);}
+.pc.cap::after{content:'C';font-family:"Bebas Neue",sans-serif;font-size:9px;position:absolute;top:2px;right:3px;color:var(--gold);}
+.wbar{height:2px;margin-top:3px;background:rgba(255,255,255,.07);overflow:hidden;}
+.wfill{height:100%;}
+/* Tooltip */
+.tt{position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%) translateY(3px);background:var(--surface);border:1px solid var(--border);padding:9px 11px;min-width:170px;opacity:0;pointer-events:none;transition:all .2s;z-index:100;text-align:left;}
+.tt::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:4px solid transparent;border-top-color:var(--border);}
+.tt-n{font-weight:500;font-size:12px;}
+.tt-p{font-family:"DM Mono",monospace;font-size:8px;letter-spacing:.07em;text-transform:uppercase;margin-top:1px;}
+.tt-w{font-family:"Bebas Neue",sans-serif;font-size:24px;line-height:1;margin-top:3px;}
+.tt-tier{font-family:"DM Mono",monospace;font-size:7px;letter-spacing:.1em;text-transform:uppercase;padding:1px 5px;border:1px solid;display:inline-block;margin-top:1px;}
+.tt-stats{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px;}
+.chip{display:flex;flex-direction:column;gap:1px;}
+.chip .l{font-size:7px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);}
+.chip .v{font-size:10px;font-family:"DM Mono",monospace;}
+.chip .v.o{color:var(--accent2);}.chip .v.t{color:var(--accent);}.chip .v.d{color:var(--green);}
+/* Bench */
+.bench-ttl{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:11px;}
+.bench-row{display:flex;gap:9px;flex-wrap:wrap;}
+.bc{background:var(--card);border:1px solid var(--border);border-left:3px solid transparent;padding:10px 13px;display:flex;align-items:center;gap:11px;flex:1;min-width:195px;max-width:230px;cursor:pointer;transition:all .2s;position:relative;}
+.bc:hover{border-color:rgba(22,163,74,.28);}
+.bc:hover .tt{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+.bn{font-family:"Bebas Neue",sans-serif;font-size:16px;min-width:20px;text-align:center;}
+.bi{flex:1;}
+.bi .n{font-weight:500;font-size:12px;}
+.bi .t{font-family:"DM Mono",monospace;font-size:8px;letter-spacing:.07em;text-transform:uppercase;margin-top:1px;}
+.bw{font-family:"Bebas Neue",sans-serif;font-size:22px;line-height:1;}
+.bwl{font-family:"DM Mono",monospace;font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+/* note */
+.note{background:rgba(22,163,74,.03);border:1px solid rgba(22,163,74,.15);border-left:3px solid var(--accent);padding:11px 14px;font-size:12px;line-height:1.5;margin-top:22px;color:var(--text);}
+.note strong{color:var(--accent);}
+</style>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMTExODI3Ii8+PHRleHQgeD0iMTYiIHk9IjIwIiBmb250LWZhbWlseT0iSW1wYWN0LEFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5EQTwvdGV4dD48cmVjdCB4PSIwIiB5PSIyNiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjYiIGZpbGw9IiMxNmEzNGEiLz48L3N2Zz4=" type="image/svg+xml">
+</head>
+<body>
+<style>
+.dam-topnav{position:sticky;top:0;z-index:9999;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid #e2e5eb;padding:0 28px;height:50px;display:flex;align-items:center;justify-content:space-between;}
+.dam-topnav-back{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;text-decoration:none;display:flex;align-items:center;gap:6px;}
+.dam-topnav-back:hover{color:#16a34a;}
+.dam-topnav-brand{font-family:"Bebas Neue",sans-serif;font-size:17px;letter-spacing:.06em;color:#111827;text-decoration:none;}
+.dam-topnav-brand span{color:#16a34a;}
+</style>
+<div class="dam-topnav"><a href="index.html" class="dam-topnav-back">&#8592; Back</a><a href="index.html" class="dam-topnav-brand" style="line-height:0;"><svg viewBox="0 0 178 38" height="36" xmlns="http://www.w3.org/2000/svg" style="display:block;"><text x="0" y="22" font-family="'Bebas Neue',Impact,sans-serif" font-size="22" fill="#111827" letter-spacing="1">DON'T ARGUE</text><rect x="0" y="26" width="178" height="2" fill="#16a34a"/><text x="1" y="36" font-family="'DM Mono',monospace" font-size="9" fill="#6b7280" letter-spacing="5">MEDIA</text></svg></a></div>
+<div class="page">
+<header>
+  <div class="badge">2026 AFL Season · WAR · Round 14 · Updated</div>
+  <h1>WAR <span>All-Australian</span><br>Team of 22</h1>
+  <div class="meta">Best 22 by Wins Above Replacement · AFL standard lineup · Hover any player for full stats</div>
+</header>
+<div class="capbar">
+  <div class="cap-lbl">Captain</div>
+  <div>
+    <div class="cap-name">Isaac Heeney</div>
+    <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#16a34a;margin-top:2px;">Sydney · Midfielder</div>
+  </div>
+  <div class="cap-war">+3.33 WAR</div>
+</div>
+<div class="ground" id="ground">
+  <div class="cc"></div><div class="f50t"></div><div class="f50b"></div>
+</div>
+<div class="bench-ttl">Interchange Bench</div>
+<div class="bench-row" id="bench"></div>
+<div class="note"><strong>Round 14 changes:</strong> Darcy Wilmot is the big mover, a huge game for Brisbane rocketing him from 20th to 9th overall and into the half-back line ahead of the chasing pack. Charlie Cameron also climbs (18th to 14th) to hold his half-forward spot, while Jeremy Howe (39th to 43rd) is the closest thing to a fade among this side's regulars.</div>
+</div>
+<script>
+const MAX_WAR = 3.11;
+const PC = {'Key Defender':'#3ddc84','Gen. Defender':'#00cc88','Midfielder':'#16a34a','Mid-Forward':'#16a34a','Key Forward':'#ff6b35','Gen. Forward':'#ffaa44','Ruck':'#8888ff'};
+function wc(w){return w<0?'#ff4757':w<0.5?'#9ca3af':w<1.5?'var(--text)':w<2.0?'#22c55e':w<2.5?'var(--green)':'var(--accent)';}
+function wt(w){if(w<0)return['Below Replacement','#ff4757'];if(w<0.5)return['Fringe','#9ca3af'];if(w<1.5)return['Starter','var(--text)'];if(w<2.0)return['High-Quality Starter','#22c55e'];if(w<2.5)return['Star','var(--green)'];return['Elite Season','var(--accent)'];}
+function tt(p){
+  const pc=PC[p.p]||'var(--accent)';
+  const[tl,tc]=wt(p.war);
+  const ws=(p.war>=0?'+':'')+p.war.toFixed(2);
+  return `<div class="tt">
+    <div class="tt-n">${p.n}${p.captain?' <span style="color:var(--gold)">©</span>':''}</div>
+    <div class="tt-p" style="color:${pc}">${p.t} · ${p.p}</div>
+    <div class="tt-w" style="color:${wc(p.war)}">${ws}</div>
+    <div class="tt-tier" style="color:${tc};border-color:${tc}">${tl}</div>
+    <div class="tt-stats">
+      <div class="chip"><div class="l">Gls</div><div class="v o">${p.gl.toFixed(1)}</div></div>
+      <div class="chip"><div class="l">Disp</div><div class="v t">${p.di.toFixed(0)}</div></div>
+      <div class="chip"><div class="l">Int</div><div class="v d">${p.ic.toFixed(1)}</div></div>
+      <div class="chip"><div class="l">Tkl</div><div class="v d">${p.tk.toFixed(1)}</div></div>
+      <div class="chip"><div class="l">SI</div><div class="v o">${p.si.toFixed(1)}</div></div>
+      <div class="chip"><div class="l">Proj</div><div class="v" style="color:${pc}">${(p.wp>=0?'+':'')+p.wp.toFixed(1)}</div></div>
+      <div class="chip"><div class="l">Gms</div><div class="v">${p.g}</div></div>
+    </div>
+  </div>`;
+}
+function pcard(p, num){
+  const pc=PC[p.p]||'var(--accent)';
+  const ws=(p.war>=0?'+':'')+p.war.toFixed(2);
+  const bp=Math.max(4,(p.war/MAX_WAR)*100).toFixed(0);
+  const ini=p.n.split(' ').map((w,i)=>i===0?w[0]+'.':w).join(' ');
+  return `<div class="pc${p.captain?' cap':''}">
+    <span class="init">${num}</span>
+    <div class="pname">${ini}</div>
+    <div class="pteam" style="color:${pc}">${p.t}</div>
+    <div class="pwar" style="color:${wc(p.war)}">${ws}</div>
+    <div class="wbar"><div class="wfill" style="width:${bp}%;background:${pc}"></div></div>
+    ${tt(p)}
+  </div>`;
+}
+
+const LINEUP = {"backs":[{"n":"Callum Wilkie","t":"St Kilda","p":"Key Defender","g":14,"war":2.79,"wp":4.58,"gl":0.0,"di":23.21,"ic":8.79,"tk":1.86,"si":3.14,"whl":10.7,"warRk":2,"whlRk":111,"diff":109,"slot":"FB"},{"n":"James Sicily","t":"Hawthorn","p":"Key Defender","g":12,"war":2.59,"wp":4.96,"gl":0.0,"di":22.17,"ic":9.0,"tk":2.42,"si":3.5,"whl":11.983,"warRk":7,"whlRk":60,"diff":53,"slot":"CFB"},{"n":"Jeremy Howe","t":"Collingwood","p":"Key Defender","g":10,"war":1.9,"wp":4.37,"gl":0.0,"di":17.6,"ic":5.9,"tk":1.2,"si":3.0,"whl":10.28,"warRk":43,"whlRk":134,"diff":91,"slot":"FB"}],"halfbacks":[{"n":"Nick Blakey","t":"Sydney","p":"Gen. Defender","g":14,"war":2.62,"wp":4.3,"gl":0.29,"di":26.0,"ic":6.0,"tk":1.5,"si":5.64,"whl":15.171,"warRk":5,"whlRk":16,"diff":11,"slot":"HBF"},{"n":"Jack Sinclair","t":"St Kilda","p":"Gen. Defender","g":14,"war":2.48,"wp":4.08,"gl":0.14,"di":29.0,"ic":5.14,"tk":1.71,"si":5.79,"whl":13.829,"warRk":10,"whlRk":32,"diff":22,"slot":"CHB"},{"n":"Darcy Wilmot","t":"Brisbane","p":"Gen. Defender","g":14,"war":2.5,"wp":4.11,"gl":0.07,"di":23.14,"ic":5.64,"tk":1.79,"si":4.0,"whl":11.643,"warRk":9,"whlRk":71,"diff":62,"slot":"HBF"}],"centres":[{"n":"Bailey Smith","t":"Geelong","p":"Midfielder","g":14,"war":2.47,"wp":4.06,"gl":0.43,"di":32.29,"ic":3.36,"tk":5.0,"si":7.5,"whl":15.814,"warRk":12,"whlRk":14,"diff":2,"slot":"W"},{"n":"Isaac Heeney","t":"Sydney","p":"Midfielder","g":12,"war":3.11,"wp":5.96,"gl":1.92,"di":27.25,"ic":3.42,"tk":5.33,"si":8.5,"whl":20.017,"warRk":1,"whlRk":1,"diff":0,"slot":"C","captain":true},{"n":"Kysaiah Pickett","t":"Melbourne","p":"Midfielder","g":14,"war":2.33,"wp":3.83,"gl":1.57,"di":23.0,"ic":2.36,"tk":4.79,"si":6.71,"whl":17.693,"warRk":18,"whlRk":7,"diff":-11,"slot":"W"}],"followers":[{"n":"Max Gawn","t":"Melbourne","p":"Ruck","g":14,"war":2.45,"wp":4.03,"gl":0.71,"di":21.14,"ic":4.07,"tk":1.79,"si":6.5,"whl":18.729,"warRk":13,"whlRk":5,"diff":-8,"slot":"R"},{"n":"Marcus Bontempelli","t":"Western Bulldogs","p":"Midfielder","g":14,"war":2.71,"wp":4.45,"gl":1.36,"di":26.93,"ic":3.0,"tk":4.29,"si":6.86,"whl":19.471,"warRk":3,"whlRk":3,"diff":0,"slot":"RR"},{"n":"Jordan Dawson","t":"Adelaide","p":"Midfielder","g":10,"war":2.22,"wp":5.11,"gl":1.5,"di":25.8,"ic":4.3,"tk":5.8,"si":6.2,"whl":19.67,"warRk":22,"whlRk":2,"diff":-20,"slot":"RC"}],"halfforwards":[{"n":"Nick Watson","t":"Hawthorn","p":"Gen. Forward","g":13,"war":2.56,"wp":4.53,"gl":2.54,"di":14.08,"ic":1.69,"tk":2.23,"si":7.15,"whl":16.446,"warRk":8,"whlRk":11,"diff":3,"slot":"HFF"},{"n":"Chad Warner","t":"Sydney","p":"Mid-Forward","g":14,"war":2.6,"wp":4.27,"gl":1.29,"di":22.43,"ic":2.86,"tk":3.0,"si":7.86,"whl":15.029,"warRk":6,"whlRk":19,"diff":13,"slot":"CHF"},{"n":"Charlie Cameron","t":"Brisbane","p":"Gen. Forward","g":14,"war":2.38,"wp":3.9,"gl":2.14,"di":12.0,"ic":1.57,"tk":2.64,"si":5.64,"whl":11.771,"warRk":14,"whlRk":69,"diff":55,"slot":"HFF"}],"forwards":[{"n":"Josh Treacy","t":"Fremantle","p":"Key Forward","g":13,"war":2.34,"wp":4.14,"gl":2.46,"di":13.92,"ic":1.77,"tk":2.46,"si":7.31,"whl":11.946,"warRk":17,"whlRk":61,"diff":44,"slot":"FF"},{"n":"Shannon Neale","t":"Geelong","p":"Key Forward","g":14,"war":2.26,"wp":3.71,"gl":1.79,"di":10.57,"ic":1.0,"tk":2.57,"si":6.5,"whl":10.121,"warRk":20,"whlRk":142,"diff":122,"slot":"CF"},{"n":"Shaun Mannagh","t":"Geelong","p":"Gen. Forward","g":14,"war":2.34,"wp":3.84,"gl":1.5,"di":15.86,"ic":1.14,"tk":2.36,"si":6.43,"whl":12.379,"warRk":16,"whlRk":52,"diff":36,"slot":"FF"}]};
+const BENCH = [{"n":"Luke Jackson","t":"Fremantle","p":"Ruck","g":13,"war":2.69,"wp":4.76,"gl":0.92,"di":19.0,"ic":2.69,"tk":5.15,"si":7.92,"whl":16.031,"warRk":4,"whlRk":12,"diff":8},{"n":"Tom Stewart","t":"Geelong","p":"Gen. Defender","g":13,"war":2.13,"wp":3.77,"gl":0.08,"di":20.77,"ic":7.62,"tk":1.61,"si":3.0,"whl":10.415,"warRk":26,"whlRk":124,"diff":98},{"n":"Kade Chandler","t":"Melbourne","p":"Gen. Forward","g":14,"war":2.17,"wp":3.56,"gl":1.0,"di":16.21,"ic":1.64,"tk":4.21,"si":5.79,"whl":14.214,"warRk":25,"whlRk":27,"diff":2},{"n":"Max Holmes","t":"Geelong","p":"Midfielder","g":14,"war":2.21,"wp":3.63,"gl":0.29,"di":29.36,"ic":3.57,"tk":3.14,"si":6.43,"whl":14.179,"warRk":23,"whlRk":28,"diff":5}];
+
+const ground = document.getElementById('ground');
+const sections = [
+  {key:'backs',       label:'Backs'},
+  {key:'halfbacks',   label:'Half-Backs'},
+  {key:'centres',     label:'Centres'},
+  {key:'followers',   label:'Followers'},
+  {key:'halfforwards',label:'Half-Forwards'},
+  {key:'forwards',    label:'Forwards'},
+];
+let num=1;
+sections.forEach(sec=>{
+  const row=document.createElement('div');
+  row.className='row';
+  const lbl=document.createElement('span');
+  lbl.className='rl';lbl.textContent=sec.label;
+  row.appendChild(lbl);
+  LINEUP[sec.key].forEach(p=>{
+    const el=document.createElement('div');
+    el.innerHTML=pcard(p,num++);
+    row.appendChild(el.firstChild);
+  });
+  ground.appendChild(row);
+});
+
+const benchEl=document.getElementById('bench');
+BENCH.forEach((p,i)=>{
+  const pc=PC[p.p]||'var(--accent)';
+  const ws=(p.war>=0?'+':'')+p.war.toFixed(2);
+  const el=document.createElement('div');
+  el.className='bc';
+  el.style.borderLeftColor=pc;
+  el.innerHTML=`
+    <div class="bn" style="color:${pc}">${i+19}</div>
+    <div class="bi">
+      <div class="n">${p.n}</div>
+      <div class="t" style="color:${pc}">${p.t} · ${p.p}</div>
+    </div>
+    <div>
+      <div class="bw" style="color:${wc(p.war)}">${ws}</div>
+      <div class="bwl">WAR</div>
+    </div>
+    ${tt(p)}`;
+  benchEl.appendChild(el);
+});
+</script>
+</body>
+</html>
