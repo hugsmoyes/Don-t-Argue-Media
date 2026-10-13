@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WAR vs The Media: Where Does Every Top 25 Player Actually Rank?   Don't Argue Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4f7;--surface:#fff;--border:#e2e5eb;--accent:#16a34a;--accent2:#ea580c;--text:#111827;--muted:#6b7280;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.65;}
+.page{max-width:800px;margin:0 auto;padding:36px 20px 100px;}
+header{border-bottom:1px solid var(--border);padding-bottom:24px;margin-bottom:32px;}
+.badge{display:inline-block;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;color:var(--accent);border:1px solid var(--accent);padding:3px 10px;margin-bottom:12px;text-transform:uppercase;}
+h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(38px,7vw,60px);letter-spacing:.02em;line-height:.92;margin-bottom:8px;}
+h1 em{color:var(--accent);font-style:normal;}
+.meta{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--muted);margin-top:6px;}
+p{font-size:15px;color:#374151;line-height:1.72;margin-bottom:16px;max-width:720px;}
+p strong{color:var(--text);}
+h2{font-family:"Bebas Neue",sans-serif;font-size:28px;letter-spacing:.04em;margin:36px 0 10px;}
+.pull{background:var(--surface);border-left:3px solid var(--accent);padding:14px 18px;margin:24px 0;font-size:15px;color:#374151;line-height:1.65;}
+.pull.red{border-left-color:var(--accent2);}
+.tbl-wrap{overflow-x:auto;margin:24px 0;}
+table{border-collapse:collapse;width:100%;font-size:13px;}
+thead th{font-family:"DM Mono",monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--border);text-align:left;}
+tbody td{padding:8px 10px;border-bottom:1px solid rgba(0,0,0,.05);vertical-align:middle;}
+.rk{font-family:"Bebas Neue",sans-serif;font-size:18px;color:var(--muted);}
+.pn{font-weight:500;font-size:13px;}
+.pt{font-family:"DM Mono",monospace;font-size:9px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;}
+.wv{font-family:"Bebas Neue",sans-serif;font-size:18px;color:var(--text);}
+.wv.elite{color:var(--accent);}
+.wv.aa{color:#059669;}
+.tbl-head{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+@media(max-width:580px){}
+.omit-name{font-weight:500;font-size:14px;margin-bottom:2px;}
+.omit-war{font-family:"Bebas Neue",sans-serif;font-size:26px;color:var(--accent);}
+.omit-meta{font-family:"DM Mono",monospace;font-size:9px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;}
+.omit-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);padding:12px 16px;}
+.dam-topnav{position:sticky;top:0;z-index:9999;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid #e2e5eb;padding:0 28px;height:50px;display:flex;align-items:center;justify-content:space-between;}
+.dam-topnav-back{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;text-decoration:none;display:flex;align-items:center;gap:6px;}
+.dam-topnav-back:hover{color:#16a34a;}
+.dam-topnav-brand{font-family:"Bebas Neue",sans-serif;font-size:17px;letter-spacing:.06em;color:#111827;text-decoration:none;}
+.dam-topnav-brand span{color:#16a34a;}
+
+.unified{border-collapse:collapse;width:100%;font-size:13px;}
+.unified thead th{font-family:"DM Mono",monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--border);text-align:left;white-space:nowrap;}
+.unified tbody td{padding:8px 10px;border-bottom:1px solid rgba(0,0,0,.05);vertical-align:middle;}
+.unified .sp{width:24px;border-left:1px solid var(--border);border-bottom:none;background:var(--bg);padding:0;}
+.unified .mc{font-family:"DM Mono",monospace;font-size:11px;color:var(--muted);}
+.unified .cr{font-family:"DM Mono",monospace;font-size:11px;color:var(--muted);}
+</style>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMTExODI3Ii8+PHRleHQgeD0iMTYiIHk9IjIwIiBmb250LWZhbWlseT0iSW1wYWN0LEFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5EQTwvdGV4dD48cmVjdCB4PSIwIiB5PSIyNiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjYiIGZpbGw9IiMxNmEzNGEiLz48L3N2Zz4=" type="image/svg+xml">
+</head>
+<body>
+<div class="dam-topnav"><a href="index.html" class="dam-topnav-back">&#8592; Back</a><a href="index.html" class="dam-topnav-brand" style="line-height:0;"><svg viewBox="0 0 178 38" height="36" xmlns="http://www.w3.org/2000/svg" style="display:block;"><text x="0" y="22" font-family="'Bebas Neue',Impact,sans-serif" font-size="22" fill="#111827" letter-spacing="1">DON'T ARGUE</text><rect x="0" y="26" width="178" height="2" fill="#16a34a"/><text x="1" y="36" font-family="'DM Mono',monospace" font-size="9" fill="#6b7280" letter-spacing="5">MEDIA</text></svg></a></div>
+<div class="page">
+<header>
+  <div class="badge">WAR &#183; 2026 Final &#183; Analysis</div>
+  <h1>WAR VS <em>THE MEDIA</em>:<br>WHERE DO THEY REALLY RANK?</h1>
+  <div class="meta"><span>WAR v36 &nbsp;&#183;&nbsp; 669 players ranked &nbsp;&#183;&nbsp; AFL.com.au The 25, October edition</span></div>
+</header>
+
+<p>AFL.com.au ranks the competition's best 25 players every month, and the October edition is their final word on the 2026 season. It is a good list, put together by people who watch every game. But when you run those same 25 names through the WAR model against all 669 players who took the field this year, some of the results are hard to explain. Not by a spot or two. By more than 200 places.</p>
+<p>Below is every player from AFL.com.au's October top 25, their end-of-season WAR, and exactly where they rank in the full competition.</p>
+
+<div class="tbl-wrap" style="overflow-x:auto;margin:24px 0;">
+<table class="unified">
+<thead>
+<tr>
+  <th colspan="3" style="text-align:left;padding-bottom:6px;border-bottom:none;"><span class="tbl-head">WAR Top 25: Full Competition</span></th>
+  <th class="sp"></th>
+  <th colspan="4" style="text-align:left;padding-bottom:6px;border-bottom:none;"><span class="tbl-head">AFL.com.au Panel vs WAR</span></th>
+</tr>
+<tr><th>#</th><th>Player</th><th>WAR</th><th class="sp"></th><th>Media</th><th>Player</th><th>WAR</th><th>Comp. Rank</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="rk">1</span></td>
+<td><div class="pn">Luke Jackson</div><div class="pt">Fremantle &nbsp;&#183;&nbsp; Ruck</div></td>
+<td><span class="wv elite">5.38</span></td>
+<td class="sp"></td>
+<td class="mc">#1</td>
+<td><div class="pn">Nick Daicos</div><div class="pt">Collingwood &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv elite">4.36</span></td>
+<td class="cr">#10</td>
+</tr>
+<tr>
+<td><span class="rk">2</span></td>
+<td><div class="pn">Isaac Heeney</div><div class="pt">Sydney &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv elite">4.93</span></td>
+<td class="sp"></td>
+<td class="mc">#2</td>
+<td><div class="pn">Marcus Bontempelli</div><div class="pt">Western Bulldogs &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv elite">4.87</span></td>
+<td class="cr">#3</td>
+</tr>
+<tr>
+<td><span class="rk">3</span></td>
+<td><div class="pn">Marcus Bontempelli</div><div class="pt">Western Bulldogs &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv elite">4.87</span></td>
+<td class="sp"></td>
+<td class="mc">#3</td>
+<td><div class="pn">Luke Jackson</div><div class="pt">Fremantle &nbsp;&#183;&nbsp; Ruck</div></td>
+<td><span class="wv elite">5.38</span></td>
+<td class="cr">#1</td>
+</tr>
+<tr>
+<td><span class="rk">4</span></td>
+<td><div class="pn">Nick Watson</div><div class="pt">Hawthorn &nbsp;&#183;&nbsp; Gen. Forward</div></td>
+<td><span class="wv elite">4.81</span></td>
+<td class="sp"></td>
+<td class="mc">#4</td>
+<td><div class="pn">Zak Butters</div><div class="pt">Port Adelaide &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv ">2.16</span></td>
+<td class="cr">#144</td>
+</tr>
+<tr>
+<td><span class="rk">5</span></td>
+<td><div class="pn">James Sicily</div><div class="pt">Hawthorn &nbsp;&#183;&nbsp; Key Defender</div></td>
+<td><span class="wv elite">4.77</span></td>
+<td class="sp"></td>
+<td class="mc">#5</td>
+<td><div class="pn">Nick Watson</div><div class="pt">Hawthorn &nbsp;&#183;&nbsp; Gen. Forward</div></td>
+<td><span class="wv elite">4.81</span></td>
+<td class="cr">#4</td>
+</tr>
+<tr>
+<td><span class="rk">6</span></td>
+<td><div class="pn">Shaun Mannagh</div><div class="pt">Geelong &nbsp;&#183;&nbsp; Gen. Forward</div></td>
+<td><span class="wv elite">4.71</span></td>
+<td class="sp"></td>
+<td class="mc">#6</td>
+<td><div class="pn">Will Ashcroft</div><div class="pt">Brisbane &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv elite">4.25</span></td>
+<td class="cr">#11</td>
+</tr>
+<tr>
+<td><span class="rk">7</span></td>
+<td><div class="pn">Charlie Cameron</div><div class="pt">Brisbane &nbsp;&#183;&nbsp; Gen. Forward</div></td>
+<td><span class="wv elite">4.59</span></td>
+<td class="sp"></td>
+<td class="mc">#7</td>
+<td><div class="pn">Errol Gulden</div><div class="pt">Sydney &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv ">1.34</span></td>
+<td class="cr">#235</td>
+</tr>
+<tr>
+<td><span class="rk">8</span></td>
+<td><div class="pn">Zac Bailey</div><div class="pt">Brisbane &nbsp;&#183;&nbsp; Mid-Forward</div></td>
+<td><span class="wv elite">4.52</span></td>
+<td class="sp"></td>
+<td class="mc">#8</td>
+<td><div class="pn">Jordan Dawson</div><div class="pt">Adelaide &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv aa">3.56</span></td>
+<td class="cr">#31</td>
+</tr>
+<tr>
+<td><span class="rk">9</span></td>
+<td><div class="pn">Ed Richards</div><div class="pt">Western Bulldogs &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv elite">4.37</span></td>
+<td class="sp"></td>
+<td class="mc">#9</td>
+<td><div class="pn">Nasiah Wanganeen-Milera</div><div class="pt">St Kilda &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv ">3.30</span></td>
+<td class="cr">#46</td>
+</tr>
+<tr>
+<td><span class="rk">10</span></td>
+<td><div class="pn">Nick Daicos</div><div class="pt">Collingwood &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv elite">4.36</span></td>
+<td class="sp"></td>
+<td class="mc">#10</td>
+<td><div class="pn">Max Gawn</div><div class="pt">Melbourne &nbsp;&#183;&nbsp; Ruck</div></td>
+<td><span class="wv aa">4.07</span></td>
+<td class="cr">#17</td>
+</tr>
+<tr>
+<td><span class="rk">11</span></td>
+<td><div class="pn">Will Ashcroft</div><div class="pt">Brisbane &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv elite">4.25</span></td>
+<td class="sp"></td>
+<td class="mc">#11</td>
+<td><div class="pn">Kysaiah Pickett</div><div class="pt">Melbourne &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv aa">3.53</span></td>
+<td class="cr">#32</td>
+</tr>
+<tr>
+<td><span class="rk">12</span></td>
+<td><div class="pn">Darcy Wilmot</div><div class="pt">Brisbane &nbsp;&#183;&nbsp; Gen. Defender</div></td>
+<td><span class="wv aa">4.24</span></td>
+<td class="sp"></td>
+<td class="mc">#12</td>
+<td><div class="pn">Harris Andrews</div><div class="pt">Brisbane &nbsp;&#183;&nbsp; Key Defender</div></td>
+<td><span class="wv aa">4.03</span></td>
+<td class="cr">#18</td>
+</tr>
+<tr>
+<td><span class="rk">13</span></td>
+<td><div class="pn">Bailey Smith</div><div class="pt">Geelong &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv aa">4.23</span></td>
+<td class="sp"></td>
+<td class="mc">#13</td>
+<td><div class="pn">Isaac Heeney</div><div class="pt">Sydney &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv elite">4.93</span></td>
+<td class="cr">#2</td>
+</tr>
+<tr>
+<td><span class="rk">14</span></td>
+<td><div class="pn">Tom Stewart</div><div class="pt">Geelong &nbsp;&#183;&nbsp; Gen. Defender</div></td>
+<td><span class="wv aa">4.20</span></td>
+<td class="sp"></td>
+<td class="mc">#14</td>
+<td><div class="pn">Bailey Smith</div><div class="pt">Geelong &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv aa">4.23</span></td>
+<td class="cr">#13</td>
+</tr>
+<tr>
+<td><span class="rk">15</span></td>
+<td><div class="pn">Josh Rachele</div><div class="pt">Adelaide &nbsp;&#183;&nbsp; Gen. Forward</div></td>
+<td><span class="wv aa">4.19</span></td>
+<td class="sp"></td>
+<td class="mc">#15</td>
+<td><div class="pn">Josh Treacy</div><div class="pt">Fremantle &nbsp;&#183;&nbsp; Key Forward</div></td>
+<td><span class="wv aa">3.98</span></td>
+<td class="cr">#21</td>
+</tr>
+<tr>
+<td><span class="rk">16</span></td>
+<td><div class="pn">Shannon Neale</div><div class="pt">Geelong &nbsp;&#183;&nbsp; Key Forward</div></td>
+<td><span class="wv aa">4.16</span></td>
+<td class="sp"></td>
+<td class="mc">#16</td>
+<td><div class="pn">Izak Rankine</div><div class="pt">Adelaide &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv ">2.97</span></td>
+<td class="cr">#67</td>
+</tr>
+<tr>
+<td><span class="rk">17</span></td>
+<td><div class="pn">Max Gawn</div><div class="pt">Melbourne &nbsp;&#183;&nbsp; Ruck</div></td>
+<td><span class="wv aa">4.07</span></td>
+<td class="sp"></td>
+<td class="mc">#17</td>
+<td><div class="pn">Caleb Serong</div><div class="pt">Fremantle &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv ">3.48</span></td>
+<td class="cr">#34</td>
+</tr>
+<tr>
+<td><span class="rk">18</span></td>
+<td><div class="pn">Harris Andrews</div><div class="pt">Brisbane &nbsp;&#183;&nbsp; Key Defender</div></td>
+<td><span class="wv aa">4.03</span></td>
+<td class="sp"></td>
+<td class="mc">#18</td>
+<td><div class="pn">Shai Bolton</div><div class="pt">Fremantle &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv aa">3.50</span></td>
+<td class="cr">#33</td>
+</tr>
+<tr>
+<td><span class="rk">19</span></td>
+<td><div class="pn">Chad Warner</div><div class="pt">Sydney &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv aa">4.03</span></td>
+<td class="sp"></td>
+<td class="mc">#19</td>
+<td><div class="pn">Ed Richards</div><div class="pt">Western Bulldogs &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv elite">4.37</span></td>
+<td class="cr">#9</td>
+</tr>
+<tr>
+<td><span class="rk">20</span></td>
+<td><div class="pn">Kai Lohmann</div><div class="pt">Brisbane &nbsp;&#183;&nbsp; Gen. Forward</div></td>
+<td><span class="wv aa">3.99</span></td>
+<td class="sp"></td>
+<td class="mc">#20</td>
+<td><div class="pn">Logan Morris</div><div class="pt">Brisbane &nbsp;&#183;&nbsp; Key Forward</div></td>
+<td><span class="wv ">3.47</span></td>
+<td class="cr">#36</td>
+</tr>
+<tr>
+<td><span class="rk">21</span></td>
+<td><div class="pn">Josh Treacy</div><div class="pt">Fremantle &nbsp;&#183;&nbsp; Key Forward</div></td>
+<td><span class="wv aa">3.98</span></td>
+<td class="sp"></td>
+<td class="mc">#21</td>
+<td><div class="pn">Charlie Curnow</div><div class="pt">Sydney &nbsp;&#183;&nbsp; Key Forward</div></td>
+<td><span class="wv ">3.15</span></td>
+<td class="cr">#58</td>
+</tr>
+<tr>
+<td><span class="rk">22</span></td>
+<td><div class="pn">Dylan Moore</div><div class="pt">Hawthorn &nbsp;&#183;&nbsp; Gen. Forward</div></td>
+<td><span class="wv aa">3.85</span></td>
+<td class="sp"></td>
+<td class="mc">#22</td>
+<td><div class="pn">Sam Walsh</div><div class="pt">Carlton &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv ">2.16</span></td>
+<td class="cr">#143</td>
+</tr>
+<tr>
+<td><span class="rk">23</span></td>
+<td><div class="pn">Max Hall</div><div class="pt">St Kilda &nbsp;&#183;&nbsp; Mid-Forward</div></td>
+<td><span class="wv aa">3.85</span></td>
+<td class="sp"></td>
+<td class="mc">#23</td>
+<td><div class="pn">Lachie Neale</div><div class="pt">Brisbane &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv ">3.47</span></td>
+<td class="cr">#35</td>
+</tr>
+<tr>
+<td><span class="rk">24</span></td>
+<td><div class="pn">Cam Rayner</div><div class="pt">Brisbane &nbsp;&#183;&nbsp; Gen. Forward</div></td>
+<td><span class="wv aa">3.84</span></td>
+<td class="sp"></td>
+<td class="mc">#24</td>
+<td><div class="pn">Jai Newcombe</div><div class="pt">Hawthorn &nbsp;&#183;&nbsp; Midfielder</div></td>
+<td><span class="wv ">3.31</span></td>
+<td class="cr">#43</td>
+</tr>
+<tr>
+<td><span class="rk">25</span></td>
+<td><div class="pn">Callum Wilkie</div><div class="pt">St Kilda &nbsp;&#183;&nbsp; Key Defender</div></td>
+<td><span class="wv aa">3.80</span></td>
+<td class="sp"></td>
+<td class="mc">#25</td>
+<td><div class="pn">Zac Bailey</div><div class="pt">Brisbane &nbsp;&#183;&nbsp; Mid-Forward</div></td>
+<td><span class="wv elite">4.52</span></td>
+<td class="cr">#8</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Where the model and the panel agree</h2>
+<p>The top of both lists looks similar. Four of the panel's top five, Daicos, Bontempelli, Jackson and Watson, sit inside the WAR top 10. Bailey Smith is 14th on the panel and 13th by WAR. Twelve of the 25 names appear on both lists, and all twelve finish inside the WAR top 21.</p>
+
+<h2>Luke Jackson</h2>
+<p>Jackson is third on the panel and first by WAR. That is the two systems agreeing he belongs in the top three and differing only on the order. Twenty-seven games of ruck work, clearances and tackling pressure give him the biggest season total in the competition at 5.38.</p>
+
+<h2>Nick Daicos</h2>
+<p>Daicos is first on the panel and 10th by WAR. His 4.36 is an Elite-tier season, and per game he ranks seventh in the competition. He averaged 34.7 disposals, the most of any player in the league.</p>
+<p>What keeps him out of the top few is what the model always finds with Daicos. Much of that volume is won in space, which the model credits at a lower rate than contested ball and direct scoring. This is a disagreement about order, not about whether he is a great player.</p>
+
+<h2>Errol Gulden</h2>
+<p>Gulden is seventh on the panel and 235th by WAR, the biggest gap on the list. Part of it is availability. He played 13 games, and because WAR accumulates, every missed game costs him directly.</p>
+<p>The per-game numbers do not close the gap either. Among the 472 players with 10 or more games, Gulden's WAR per game ranks 143rd. He averaged 32.0 disposals, the third most in the competition, with 0.3 goals a game. The panel is rewarding the ball winning. The model wants more of it turned into scores and contested wins.</p>
+
+<h2>Zak Butters and Sam Walsh</h2>
+<p>Butters is fourth on the panel and 144th by WAR. Walsh is 22nd and 143rd. They are the clearest example of where the two systems split. Both average around 29 disposals, both kick about 0.3 goals a game, and both finish on 2.16 WAR.</p>
+<p>Walsh played 25 games, so availability is not his issue. His WAR per game ranks 191st among players with 10 or more games. Butters ranks 76th per game from 17 games. High-volume midfielders who rarely hit the scoreboard are where the panel and the model disagree most.</p>
+
+<h2>Nasiah Wanganeen-Milera</h2>
+<p>Wanganeen-Milera is ninth on the panel and 46th by WAR, but he is a different case. Per game he ranks sixth in the competition. He played 17 games, and his total reflects the games he missed rather than how well he played in the ones he did.</p>
+
+<div class="pull red">Five of the panel's 25 finish outside the WAR top 50: Gulden (#235), Butters (#144), Walsh (#143), Rankine (#67) and Curnow (#58).</div>
+
+<h2>The players the panel missed</h2>
+<p>Thirteen of the WAR top 25 do not appear in The 25. James Sicily ranks fifth by WAR, Shaun Mannagh sixth and Charlie Cameron seventh, and none of them made the list. Darcy Wilmot (#12), Tom Stewart (#14), Josh Rachele (#15) and Shannon Neale (#16) were left off too.</p>
+<p>Seventeen of the panel's 25 are midfielders. In the WAR top 25 there are seven. The players the panel missed are defenders and forwards whose value comes from intercepts, rebound 50s, scoring and pressure rather than disposal counts. The panel is not making an irrational choice by favouring midfielders. It is making a systematic one, and the model is designed to correct for it.</p>
+
+<p class="src" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:28px;">Panel rankings: <a href="https://www.afl.com.au/news/1625944/the-25-october-edition-afls-best-players-ranked-by-our-experts" target="_blank" style="color:var(--accent);">AFL.com.au, The 25: October edition</a>. WAR: Don't Argue Media, v36, full 2026 season including finals.</p>
+
+</div>
+
+</body>
+</html>
