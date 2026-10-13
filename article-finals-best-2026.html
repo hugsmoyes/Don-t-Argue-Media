@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 2026 Finals: Who WAR Rated Best · Don't Argue Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4f7;--surface:#fff;--border:#e2e5eb;--accent:#16a34a;--text:#111827;--muted:#6b7280;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.65;}
+
+.page{max-width:680px;margin:0 auto;padding:40px 20px 100px;}
+
+/* Header */
+header{border-bottom:2px solid var(--text);padding-bottom:20px;margin-bottom:28px;}
+.badge{display:inline-block;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;color:var(--accent);border:1px solid var(--accent);padding:3px 10px;margin-bottom:12px;text-transform:uppercase;}
+h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(42px,8vw,64px);letter-spacing:.02em;line-height:.9;margin-bottom:8px;}
+h1 em{color:var(--accent);font-style:normal;}
+.meta{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--muted);}
+.intro{font-size:15px;color:#374151;line-height:1.7;margin-top:20px;padding-top:20px;border-top:1px solid var(--border);}
+
+/* Standouts strip */
+.standouts{margin:28px 0 36px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 0;}
+.standouts-label{font-family:"DM Mono",monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.standout-row{display:flex;align-items:baseline;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.05);}
+.standout-row:last-child{border-bottom:none;}
+.sr-left{display:flex;align-items:baseline;gap:10px;}
+.sr-num{font-family:"Bebas Neue",sans-serif;font-size:13px;color:var(--muted);width:16px;}
+.sr-name{font-weight:600;font-size:14px;color:var(--text);}
+.sr-team{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.sr-war{font-family:"Bebas Neue",sans-serif;font-size:20px;color:var(--accent);letter-spacing:.02em;}
+
+/* Entries */
+.section-label{font-family:"DM Mono",monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0;}
+.entry{padding:22px 0;border-bottom:1px solid var(--border);}
+.entry-meta{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.entry-meta .res-w{color:var(--accent);font-weight:600;}
+.entry-meta .res-l{color:#dc2626;font-weight:600;}
+.entry-name-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;}
+.entry-player{font-size:20px;font-weight:700;color:var(--text);letter-spacing:-0.2px;line-height:1;}
+.entry-war{font-family:"Bebas Neue",sans-serif;font-size:26px;color:var(--accent);letter-spacing:.02em;line-height:1;}
+.entry-stats{font-family:"DM Mono",monospace;font-size:9.5px;color:var(--muted);margin-bottom:10px;letter-spacing:.02em;}
+.entry-body{font-size:14px;color:#374151;line-height:1.72;max-width:620px;}
+
+/* Nav */
+.dam-topnav{position:sticky;top:0;z-index:9999;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid #e2e5eb;padding:0 28px;height:50px;display:flex;align-items:center;justify-content:space-between;}
+.dam-topnav-back{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;text-decoration:none;}
+.dam-topnav-back:hover{color:var(--accent);}
+.dam-topnav-brand{font-family:"Bebas Neue",sans-serif;font-size:17px;letter-spacing:.06em;color:#111827;text-decoration:none;}
+.dam-topnav-brand span{color:var(--accent);}
+.footnote{font-family:"DM Mono",monospace;font-size:9px;color:var(--muted);padding-top:16px;margin-top:4px;}
+
+.fx-score{font-size:15px;font-weight:600;margin-bottom:10px;color:#374151;}
+.fx-score .win{color:var(--text);}
+.fx-top{border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:12px;}
+.fx-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);}
+.fx-row:last-child{border-bottom:none;}
+.fx-who{flex:1;min-width:0;}
+.fx-line{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;}
+.res-w{color:var(--accent);font-weight:600;}.res-l{color:#dc2626;font-weight:600;}
+h2{font-family:"Bebas Neue",sans-serif;font-size:30px;letter-spacing:.02em;margin:44px 0 10px;}
+.body-p{font-size:15px;color:#374151;line-height:1.7;margin-bottom:14px;}
+.squad{margin:22px 0 10px;border-top:2px solid var(--text);}
+.sq-line{display:grid;grid-template-columns:92px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);align-items:center;}
+.sq-lbl{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+.sq-cells{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.sq-cells.four{grid-template-columns:repeat(4,1fr);}
+.sq-p{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 9px;min-width:0;}
+.sq-n{font-weight:600;font-size:13px;line-height:1.2;}
+.sq-t{font-family:"DM Mono",monospace;font-size:8.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+.sq-w{font-family:"Bebas Neue",sans-serif;font-size:19px;color:var(--accent);line-height:1;margin-top:4px;}
+.cap{display:inline-block;font-family:"DM Mono",monospace;font-size:8px;background:var(--accent);color:#fff;border-radius:3px;padding:1px 4px;vertical-align:middle;}
+@media(max-width:560px){.sq-line{grid-template-columns:1fr;gap:6px;}.sq-cells,.sq-cells.four{grid-template-columns:repeat(2,1fr);}}
+</style>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMTExODI3Ii8+PHRleHQgeD0iMTYiIHk9IjIwIiBmb250LWZhbWlseT0iSW1wYWN0LEFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5EQTwvdGV4dD48cmVjdCB4PSIwIiB5PSIyNiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjYiIGZpbGw9IiMxNmEzNGEiLz48L3N2Zz4=" type="image/svg+xml">
+</head>
+<body>
+
+<div class="dam-topnav">
+  <a href="index.html" class="dam-topnav-back">&#8592; Back</a>
+  <a href="index.html" class="dam-topnav-brand" style="line-height:0;"><svg viewBox="0 0 178 38" height="36" xmlns="http://www.w3.org/2000/svg" style="display:block;"><text x="0" y="22" font-family="'Bebas Neue',Impact,sans-serif" font-size="22" fill="#111827" letter-spacing="1">DON'T ARGUE</text><rect x="0" y="26" width="178" height="2" fill="#16a34a"/><text x="1" y="36" font-family="'DM Mono',monospace" font-size="9" fill="#6b7280" letter-spacing="5">MEDIA</text></svg></a>
+</div>
+
+<div class="page">
+
+  <header>
+    <div class="badge">WAR &#183; 2026 Finals &#183; Best Performers</div>
+    <h1>THE 2026 <em>FINALS</em>:<br>WHO WAR RATED BEST</h1>
+    <div class="meta">WAR v36 &nbsp;&#183;&nbsp; 11 finals &nbsp;&#183;&nbsp; 506 player games</div>
+    <p class="intro">Brisbane lost their qualifying final to Sydney by 53 points, then won three straight to take the flag, beating Fremantle by seven in the Grand Final. We ran every player from every final through the WAR model, game by game. Below are the top three in each of the 11 finals, and a team of the finals built from total WAR across the whole series.</p>
+  </header>
+
+  <div class="standouts">
+    <div class="standouts-label">Finals series WAR leaders</div>
+    <div class="standout-row">
+      <div class="sr-left"><span class="sr-num">1</span><span class="sr-name">Luke Jackson</span><span class="sr-team">Fremantle &nbsp;&#183;&nbsp; 4 games &nbsp;&#183;&nbsp; 0.219 per game</span></div>
+      <span class="sr-war">0.875</span>
+    </div>
+    <div class="standout-row">
+      <div class="sr-left"><span class="sr-num">2</span><span class="sr-name">Dayne Zorko</span><span class="sr-team">Brisbane &nbsp;&#183;&nbsp; 4 games &nbsp;&#183;&nbsp; 0.177 per game</span></div>
+      <span class="sr-war">0.708</span>
+    </div>
+    <div class="standout-row">
+      <div class="sr-left"><span class="sr-num">3</span><span class="sr-name">Will Ashcroft</span><span class="sr-team">Brisbane &nbsp;&#183;&nbsp; 4 games &nbsp;&#183;&nbsp; 0.150 per game</span></div>
+      <span class="sr-war">0.601</span>
+    </div>
+    <div class="standout-row">
+      <div class="sr-left"><span class="sr-num">4</span><span class="sr-name">Hayden Young</span><span class="sr-team">Fremantle &nbsp;&#183;&nbsp; 4 games &nbsp;&#183;&nbsp; 0.142 per game</span></div>
+      <span class="sr-war">0.568</span>
+    </div>
+    <div class="standout-row">
+      <div class="sr-left"><span class="sr-num">5</span><span class="sr-name">Ryan Lester</span><span class="sr-team">Brisbane &nbsp;&#183;&nbsp; 4 games &nbsp;&#183;&nbsp; 0.141 per game</span></div>
+      <span class="sr-war">0.562</span>
+    </div>
+  </div>
+
+  <div class="section-label">Every final</div>
+
+  <div class="entry">
+    <div class="entry-meta">Wildcard Final &nbsp;&#183;&nbsp; 28 Aug</div>
+    <div class="fx-score"><span class="win">Western Bulldogs 14.12 (96)</span> d Collingwood 14.9 (93)</div>
+    <div class="fx-top">
+      <div class="fx-row">
+        <span class="sr-num">1</span>
+        <div class="fx-who"><div class="sr-name">Nick Daicos</div><div class="fx-line">Collingwood &nbsp;&#183;&nbsp; <span class="res-l">L</span> &nbsp;&#183;&nbsp; 30d&nbsp;&#183;&nbsp;2g&nbsp;&#183;&nbsp;4 cl&nbsp;&#183;&nbsp;6 ic&nbsp;&#183;&nbsp;3 r50&nbsp;&#183;&nbsp;9 si</div></div>
+        <span class="sr-war">0.246</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">2</span>
+        <div class="fx-who"><div class="sr-name">Marcus Bontempelli</div><div class="fx-line">Western Bulldogs &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 32d&nbsp;&#183;&nbsp;1g&nbsp;&#183;&nbsp;8 cl&nbsp;&#183;&nbsp;10 si</div></div>
+        <span class="sr-war">0.199</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">3</span>
+        <div class="fx-who"><div class="sr-name">Matthew Kennedy</div><div class="fx-line">Western Bulldogs &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 27d&nbsp;&#183;&nbsp;1g&nbsp;&#183;&nbsp;4 cl&nbsp;&#183;&nbsp;5 ic&nbsp;&#183;&nbsp;7 si&nbsp;&#183;&nbsp;5 t</div></div>
+        <span class="sr-war">0.177</span>
+      </div>
+    </div>
+    <p class="entry-body">Nick Daicos tops the night from the losing side. Thirty disposals, two goals, two goal assists and six intercepts, and Collingwood still went out by three points. Bontempelli was the best of the winners with 32 touches, eight clearances and 10 score involvements, and Matthew Kennedy took it inside 50 nine times.</p>
+  </div>
+  <div class="entry">
+    <div class="entry-meta">Wildcard Final &nbsp;&#183;&nbsp; 29 Aug</div>
+    <div class="fx-score"><span class="win">Carlton 10.14 (74)</span> d Melbourne 7.13 (55)</div>
+    <div class="fx-top">
+      <div class="fx-row">
+        <span class="sr-num">1</span>
+        <div class="fx-who"><div class="sr-name">Jacob Weitering</div><div class="fx-line">Carlton &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 18d&nbsp;&#183;&nbsp;10 ic&nbsp;&#183;&nbsp;5 si</div></div>
+        <span class="sr-war">0.253</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">2</span>
+        <div class="fx-who"><div class="sr-name">Jagga Smith</div><div class="fx-line">Carlton &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 29d&nbsp;&#183;&nbsp;2g&nbsp;&#183;&nbsp;10 cl&nbsp;&#183;&nbsp;3 ic&nbsp;&#183;&nbsp;7 si</div></div>
+        <span class="sr-war">0.216</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">3</span>
+        <div class="fx-who"><div class="sr-name">Ben Ainsworth</div><div class="fx-line">Carlton &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 21d&nbsp;&#183;&nbsp;3g&nbsp;&#183;&nbsp;9 si</div></div>
+        <span class="sr-war">0.202</span>
+      </div>
+    </div>
+    <p class="entry-body">A low-scoring night that belonged to the Carlton defence. Jacob Weitering took 12 marks, six of them intercept marks, and added 10 intercepts and 12 one percenters. Jagga Smith won 10 clearances and kicked two goals, and Ben Ainsworth kicked three from 21 touches without a clanger.</p>
+  </div>
+  <div class="entry">
+    <div class="entry-meta">Qualifying Final &nbsp;&#183;&nbsp; 03 Sep</div>
+    <div class="fx-score"><span class="win">Hawthorn 10.12 (72)</span> d Fremantle 5.10 (40)</div>
+    <div class="fx-top">
+      <div class="fx-row">
+        <span class="sr-num">1</span>
+        <div class="fx-who"><div class="sr-name">James Sicily</div><div class="fx-line">Hawthorn &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 26d&nbsp;&#183;&nbsp;12 ic&nbsp;&#183;&nbsp;9 r50&nbsp;&#183;&nbsp;7 si</div></div>
+        <span class="sr-war">0.270</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">2</span>
+        <div class="fx-who"><div class="sr-name">Dylan Moore</div><div class="fx-line">Hawthorn &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 15d&nbsp;&#183;&nbsp;2g&nbsp;&#183;&nbsp;3 ic&nbsp;&#183;&nbsp;6 si&nbsp;&#183;&nbsp;8 t</div></div>
+        <span class="sr-war">0.226</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">3</span>
+        <div class="fx-who"><div class="sr-name">Luke Jackson</div><div class="fx-line">Fremantle &nbsp;&#183;&nbsp; <span class="res-l">L</span> &nbsp;&#183;&nbsp; 26 hitouts&nbsp;&#183;&nbsp;22d&nbsp;&#183;&nbsp;1g&nbsp;&#183;&nbsp;6 cl&nbsp;&#183;&nbsp;3 ic&nbsp;&#183;&nbsp;5 si</div></div>
+        <span class="sr-war">0.200</span>
+      </div>
+    </div>
+    <p class="entry-body">Hawthorn held Fremantle to five goals, and James Sicily is a big part of why. Twelve intercepts, nine rebound 50s and 579 metres gained. Dylan Moore kicked two and laid eight tackles. Luke Jackson was the only Docker in the top three, with 26 hitouts, six clearances and three contested marks.</p>
+  </div>
+  <div class="entry">
+    <div class="entry-meta">Elimination Final &nbsp;&#183;&nbsp; 04 Sep</div>
+    <div class="fx-score"><span class="win">Geelong 14.23 (107)</span> d Carlton 11.8 (74)</div>
+    <div class="fx-top">
+      <div class="fx-row">
+        <span class="sr-num">1</span>
+        <div class="fx-who"><div class="sr-name">Gryan Miers</div><div class="fx-line">Geelong &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 24d&nbsp;&#183;&nbsp;2g&nbsp;&#183;&nbsp;4 cl&nbsp;&#183;&nbsp;12 si</div></div>
+        <span class="sr-war">0.279</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">2</span>
+        <div class="fx-who"><div class="sr-name">Shaun Mannagh</div><div class="fx-line">Geelong &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 25d&nbsp;&#183;&nbsp;1g&nbsp;&#183;&nbsp;6 cl&nbsp;&#183;&nbsp;3 ic&nbsp;&#183;&nbsp;6 si&nbsp;&#183;&nbsp;4 t</div></div>
+        <span class="sr-war">0.249</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">3</span>
+        <div class="fx-who"><div class="sr-name">Patrick Dangerfield</div><div class="fx-line">Geelong &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 21d&nbsp;&#183;&nbsp;5g&nbsp;&#183;&nbsp;10 si</div></div>
+        <span class="sr-war">0.223</span>
+      </div>
+    </div>
+    <p class="entry-body">Geelong kicked 14.23 and their forwards took all three spots. Gryan Miers had 12 score involvements from 24 disposals, Shaun Mannagh had six clearances and eight inside 50s, and Patrick Dangerfield kicked five. Tom Stewart was just behind them with 11 intercepts.</p>
+  </div>
+  <div class="entry">
+    <div class="entry-meta">Qualifying Final &nbsp;&#183;&nbsp; 05 Sep</div>
+    <div class="fx-score"><span class="win">Sydney 21.15 (141)</span> d Brisbane 13.10 (88)</div>
+    <div class="fx-top">
+      <div class="fx-row">
+        <span class="sr-num">1</span>
+        <div class="fx-who"><div class="sr-name">Tom Papley</div><div class="fx-line">Sydney &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 16d&nbsp;&#183;&nbsp;5g&nbsp;&#183;&nbsp;3 ic&nbsp;&#183;&nbsp;13 si&nbsp;&#183;&nbsp;3 t</div></div>
+        <span class="sr-war">0.242</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">2</span>
+        <div class="fx-who"><div class="sr-name">Hayden McLean</div><div class="fx-line">Sydney &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 14d&nbsp;&#183;&nbsp;3g&nbsp;&#183;&nbsp;3 cl&nbsp;&#183;&nbsp;7 si&nbsp;&#183;&nbsp;4 t</div></div>
+        <span class="sr-war">0.231</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">3</span>
+        <div class="fx-who"><div class="sr-name">Dane Rampe</div><div class="fx-line">Sydney &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 19d&nbsp;&#183;&nbsp;8 ic&nbsp;&#183;&nbsp;5 r50&nbsp;&#183;&nbsp;5 si</div></div>
+        <span class="sr-war">0.228</span>
+      </div>
+    </div>
+    <p class="entry-body">Sydney kicked 21 goals and spread them around. Tom Papley kicked five with four goal assists and 13 score involvements, Hayden McLean kicked three with three contested marks, and Dane Rampe had eight intercepts and 563 metres gained. Logan McDonald kicked six and still finished fourth.</p>
+  </div>
+  <div class="entry">
+    <div class="entry-meta">Elimination Final &nbsp;&#183;&nbsp; 05 Sep</div>
+    <div class="fx-score"><span class="win">Adelaide 14.6 (90)</span> d Western Bulldogs 9.14 (68)</div>
+    <div class="fx-top">
+      <div class="fx-row">
+        <span class="sr-num">1</span>
+        <div class="fx-who"><div class="sr-name">Izak Rankine</div><div class="fx-line">Adelaide &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 34d&nbsp;&#183;&nbsp;2g&nbsp;&#183;&nbsp;7 cl&nbsp;&#183;&nbsp;6 r50&nbsp;&#183;&nbsp;3 si&nbsp;&#183;&nbsp;4 t</div></div>
+        <span class="sr-war">0.213</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">2</span>
+        <div class="fx-who"><div class="sr-name">Wayne Milera</div><div class="fx-line">Adelaide &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 27d&nbsp;&#183;&nbsp;7 ic&nbsp;&#183;&nbsp;3 r50&nbsp;&#183;&nbsp;7 si</div></div>
+        <span class="sr-war">0.209</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">3</span>
+        <div class="fx-who"><div class="sr-name">Bailey Williams</div><div class="fx-line">Western Bulldogs &nbsp;&#183;&nbsp; <span class="res-l">L</span> &nbsp;&#183;&nbsp; 26d&nbsp;&#183;&nbsp;12 ic&nbsp;&#183;&nbsp;8 r50&nbsp;&#183;&nbsp;5 si</div></div>
+        <span class="sr-war">0.196</span>
+      </div>
+    </div>
+    <p class="entry-body">Izak Rankine had 34 disposals, seven clearances, two goals and 711 metres gained. Wayne Milera had 27 touches and seven intercepts without a clanger. Bailey Williams was the best Bulldog with 12 intercepts and eight rebound 50s, edging Bontempelli by a fraction.</p>
+  </div>
+  <div class="entry">
+    <div class="entry-meta">Semi Final &nbsp;&#183;&nbsp; 11 Sep</div>
+    <div class="fx-score"><span class="win">Fremantle 18.12 (120)</span> d Geelong 16.10 (106)</div>
+    <div class="fx-top">
+      <div class="fx-row">
+        <span class="sr-num">1</span>
+        <div class="fx-who"><div class="sr-name">Luke Jackson</div><div class="fx-line">Fremantle &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 35 hitouts&nbsp;&#183;&nbsp;25d&nbsp;&#183;&nbsp;2g&nbsp;&#183;&nbsp;8 cl&nbsp;&#183;&nbsp;3 ic&nbsp;&#183;&nbsp;12 si</div></div>
+        <span class="sr-war">0.243</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">2</span>
+        <div class="fx-who"><div class="sr-name">Patrick Dangerfield</div><div class="fx-line">Geelong &nbsp;&#183;&nbsp; <span class="res-l">L</span> &nbsp;&#183;&nbsp; 14d&nbsp;&#183;&nbsp;2g&nbsp;&#183;&nbsp;9 si&nbsp;&#183;&nbsp;7 t</div></div>
+        <span class="sr-war">0.222</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">3</span>
+        <div class="fx-who"><div class="sr-name">Oliver Henry</div><div class="fx-line">Geelong &nbsp;&#183;&nbsp; <span class="res-l">L</span> &nbsp;&#183;&nbsp; 20d&nbsp;&#183;&nbsp;5g&nbsp;&#183;&nbsp;8 si</div></div>
+        <span class="sr-war">0.213</span>
+      </div>
+    </div>
+    <p class="entry-body">Jackson had 35 hitouts, nine to advantage, eight clearances and 10 score launches, plus two goals. Geelong lost but had the next two: Dangerfield with two goals and seven tackles, and Oliver Henry with five goals from 20 disposals.</p>
+  </div>
+  <div class="entry">
+    <div class="entry-meta">Semi Final &nbsp;&#183;&nbsp; 12 Sep</div>
+    <div class="fx-score"><span class="win">Brisbane 21.18 (144)</span> d Adelaide 13.13 (91)</div>
+    <div class="fx-top">
+      <div class="fx-row">
+        <span class="sr-num">1</span>
+        <div class="fx-who"><div class="sr-name">Dayne Zorko</div><div class="fx-line">Brisbane &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 27d&nbsp;&#183;&nbsp;1g&nbsp;&#183;&nbsp;5 ic&nbsp;&#183;&nbsp;10 r50&nbsp;&#183;&nbsp;9 si</div></div>
+        <span class="sr-war">0.268</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">2</span>
+        <div class="fx-who"><div class="sr-name">Cam Rayner</div><div class="fx-line">Brisbane &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 22d&nbsp;&#183;&nbsp;2g&nbsp;&#183;&nbsp;3 ic&nbsp;&#183;&nbsp;11 si&nbsp;&#183;&nbsp;4 t</div></div>
+        <span class="sr-war">0.256</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">3</span>
+        <div class="fx-who"><div class="sr-name">Zac Bailey</div><div class="fx-line">Brisbane &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 23d&nbsp;&#183;&nbsp;3g&nbsp;&#183;&nbsp;3 cl&nbsp;&#183;&nbsp;14 si&nbsp;&#183;&nbsp;5 t</div></div>
+        <span class="sr-war">0.256</span>
+      </div>
+    </div>
+    <p class="entry-body">Brisbane kicked 21.18 and three Lions finished within 0.012 WAR of each other. Dayne Zorko had 10 rebound 50s and 687 metres gained. Cam Rayner kicked two with four goal assists, and Zac Bailey kicked 3.3 with 14 score involvements, the most by anyone in a single final this year.</p>
+  </div>
+  <div class="entry">
+    <div class="entry-meta">Preliminary Final &nbsp;&#183;&nbsp; 18 Sep</div>
+    <div class="fx-score"><span class="win">Fremantle 12.11 (83)</span> d Sydney 10.11 (71)</div>
+    <div class="fx-top">
+      <div class="fx-row">
+        <span class="sr-num">1</span>
+        <div class="fx-who"><div class="sr-name">Luke Jackson</div><div class="fx-line">Fremantle &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 27 hitouts&nbsp;&#183;&nbsp;15d&nbsp;&#183;&nbsp;2g&nbsp;&#183;&nbsp;3 cl&nbsp;&#183;&nbsp;8 si&nbsp;&#183;&nbsp;5 t</div></div>
+        <span class="sr-war">0.274</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">2</span>
+        <div class="fx-who"><div class="sr-name">Dane Rampe</div><div class="fx-line">Sydney &nbsp;&#183;&nbsp; <span class="res-l">L</span> &nbsp;&#183;&nbsp; 17d&nbsp;&#183;&nbsp;5 ic&nbsp;&#183;&nbsp;7 r50&nbsp;&#183;&nbsp;3 si</div></div>
+        <span class="sr-war">0.197</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">3</span>
+        <div class="fx-who"><div class="sr-name">Shai Bolton</div><div class="fx-line">Fremantle &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 20d&nbsp;&#183;&nbsp;2g&nbsp;&#183;&nbsp;3 cl&nbsp;&#183;&nbsp;7 si&nbsp;&#183;&nbsp;8 t</div></div>
+        <span class="sr-war">0.190</span>
+      </div>
+    </div>
+    <p class="entry-body">Jackson again. Twenty-seven hitouts, 11 to advantage, three contested marks and two goals to get Fremantle into the Grand Final. Rampe had seven rebound 50s for Sydney, and Shai Bolton kicked two with eight tackles.</p>
+  </div>
+  <div class="entry">
+    <div class="entry-meta">Preliminary Final &nbsp;&#183;&nbsp; 19 Sep</div>
+    <div class="fx-score"><span class="win">Brisbane 20.11 (131)</span> d Hawthorn 19.8 (122)</div>
+    <div class="fx-top">
+      <div class="fx-row">
+        <span class="sr-num">1</span>
+        <div class="fx-who"><div class="sr-name">Nick Watson</div><div class="fx-line">Hawthorn &nbsp;&#183;&nbsp; <span class="res-l">L</span> &nbsp;&#183;&nbsp; 16d&nbsp;&#183;&nbsp;6g&nbsp;&#183;&nbsp;5 cl&nbsp;&#183;&nbsp;11 si</div></div>
+        <span class="sr-war">0.284</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">2</span>
+        <div class="fx-who"><div class="sr-name">James Sicily</div><div class="fx-line">Hawthorn &nbsp;&#183;&nbsp; <span class="res-l">L</span> &nbsp;&#183;&nbsp; 15d&nbsp;&#183;&nbsp;1g&nbsp;&#183;&nbsp;8 ic&nbsp;&#183;&nbsp;4 r50&nbsp;&#183;&nbsp;4 si</div></div>
+        <span class="sr-war">0.235</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">3</span>
+        <div class="fx-who"><div class="sr-name">Kai Lohmann</div><div class="fx-line">Brisbane &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 11d&nbsp;&#183;&nbsp;5g&nbsp;&#183;&nbsp;8 si&nbsp;&#183;&nbsp;5 t</div></div>
+        <span class="sr-war">0.231</span>
+      </div>
+    </div>
+    <p class="entry-body">The best single game of the finals came from the losing side. Nick Watson kicked 6.2 with 11 score involvements and five clearances for 0.284 WAR. Sicily had eight intercepts and five intercept marks, and Kai Lohmann kicked five goals from 11 disposals to help get Brisbane through.</p>
+  </div>
+  <div class="entry">
+    <div class="entry-meta">Grand Final &nbsp;&#183;&nbsp; 26 Sep</div>
+    <div class="fx-score"><span class="win">Brisbane 14.12 (96)</span> d Fremantle 12.17 (89)</div>
+    <div class="fx-top">
+      <div class="fx-row">
+        <span class="sr-num">1</span>
+        <div class="fx-who"><div class="sr-name">Dayne Zorko</div><div class="fx-line">Brisbane &nbsp;&#183;&nbsp; <span class="res-w">W</span> &nbsp;&#183;&nbsp; 28d&nbsp;&#183;&nbsp;7 ic&nbsp;&#183;&nbsp;9 r50&nbsp;&#183;&nbsp;6 si&nbsp;&#183;&nbsp;7 t</div></div>
+        <span class="sr-war">0.221</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">2</span>
+        <div class="fx-who"><div class="sr-name">Hayden Young</div><div class="fx-line">Fremantle &nbsp;&#183;&nbsp; <span class="res-l">L</span> &nbsp;&#183;&nbsp; 22d&nbsp;&#183;&nbsp;2g&nbsp;&#183;&nbsp;4 cl&nbsp;&#183;&nbsp;3 ic&nbsp;&#183;&nbsp;8 si&nbsp;&#183;&nbsp;9 t</div></div>
+        <span class="sr-war">0.207</span>
+      </div>
+      <div class="fx-row">
+        <span class="sr-num">3</span>
+        <div class="fx-who"><div class="sr-name">Isaiah Dudley</div><div class="fx-line">Fremantle &nbsp;&#183;&nbsp; <span class="res-l">L</span> &nbsp;&#183;&nbsp; 13d&nbsp;&#183;&nbsp;2g&nbsp;&#183;&nbsp;7 si</div></div>
+        <span class="sr-war">0.170</span>
+      </div>
+    </div>
+    <p class="entry-body">Fremantle kicked 12.17 and lost by seven. Zorko was the top player on the ground by WAR, with 28 disposals, nine rebound 50s, seven intercepts, seven tackles and 660 metres gained. Hayden Young was best for Fremantle with two goals and nine tackles, and Isaiah Dudley kicked two.</p>
+  </div>
+
+  <h2>The team of the finals</h2>
+  <p class="body-p">Picked the same way as our All-Australian side: three key defenders in the back line, three general defenders on the half-back line, the best ruck, five midfielders, then forwards by position, with the best four left over on the bench. Every spot goes to the highest finals WAR at that position.</p>
+  <p class="body-p">Brisbane have nine players in it and Fremantle eight. That is mostly a numbers thing. WAR adds up over games, and the two Grand Finalists played four finals each while most sides played one or two. Sicily, Watson and Moore made it from two games because their per-game numbers were the best of the series. Sicily's 0.252 a game is the highest of anyone who played more than once.</p>
+  <p class="body-p">Jackson captains it. His 0.875 finals WAR is 0.167 clear of Zorko, he was in the top three in three of his four finals, and his 0.219 a game is the best of anyone who played all four. Charlie Cameron kicked 11 goals, the most of the finals, and makes the bench.</p>
+
+  <div class="squad">
+  <div class="sq-line"><div class="sq-lbl">Back</div><div class="sq-cells"><div class="sq-p"><div class="sq-n">Ryan Lester</div><div class="sq-t">Brisbane &nbsp;&#183;&nbsp; KD &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.562</div></div><div class="sq-p"><div class="sq-n">Oscar McDonald</div><div class="sq-t">Fremantle &nbsp;&#183;&nbsp; KD &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.455</div></div><div class="sq-p"><div class="sq-n">James Sicily</div><div class="sq-t">Hawthorn &nbsp;&#183;&nbsp; KD &nbsp;&#183;&nbsp; 2g</div><div class="sq-w">0.505</div></div></div></div>
+  <div class="sq-line"><div class="sq-lbl">Half-back</div><div class="sq-cells"><div class="sq-p"><div class="sq-n">Heath Chapman</div><div class="sq-t">Fremantle &nbsp;&#183;&nbsp; GD &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.419</div></div><div class="sq-p"><div class="sq-n">Dayne Zorko</div><div class="sq-t">Brisbane &nbsp;&#183;&nbsp; GD &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.708</div></div><div class="sq-p"><div class="sq-n">Jordan Clark</div><div class="sq-t">Fremantle &nbsp;&#183;&nbsp; GD &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.405</div></div></div></div>
+  <div class="sq-line"><div class="sq-lbl">Centre</div><div class="sq-cells"><div class="sq-p"><div class="sq-n">Caleb Serong</div><div class="sq-t">Fremantle &nbsp;&#183;&nbsp; MID &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.488</div></div><div class="sq-p"><div class="sq-n">Will Ashcroft</div><div class="sq-t">Brisbane &nbsp;&#183;&nbsp; MID &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.601</div></div><div class="sq-p"><div class="sq-n">Shai Bolton</div><div class="sq-t">Fremantle &nbsp;&#183;&nbsp; MID &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.486</div></div></div></div>
+  <div class="sq-line"><div class="sq-lbl">Followers</div><div class="sq-cells"><div class="sq-p"><div class="sq-n">Luke Jackson <span class="cap">C</span></div><div class="sq-t">Fremantle &nbsp;&#183;&nbsp; RK &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.875</div></div><div class="sq-p"><div class="sq-n">Hayden Young</div><div class="sq-t">Fremantle &nbsp;&#183;&nbsp; MID &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.568</div></div><div class="sq-p"><div class="sq-n">Marcus Bontempelli</div><div class="sq-t">Bulldogs &nbsp;&#183;&nbsp; MID &nbsp;&#183;&nbsp; 2g</div><div class="sq-w">0.394</div></div></div></div>
+  <div class="sq-line"><div class="sq-lbl">Half-forward</div><div class="sq-cells"><div class="sq-p"><div class="sq-n">Kai Lohmann</div><div class="sq-t">Brisbane &nbsp;&#183;&nbsp; GF &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.539</div></div><div class="sq-p"><div class="sq-n">Zac Bailey</div><div class="sq-t">Brisbane &nbsp;&#183;&nbsp; MF &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.523</div></div><div class="sq-p"><div class="sq-n">Isaiah Dudley</div><div class="sq-t">Fremantle &nbsp;&#183;&nbsp; GF &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.489</div></div></div></div>
+  <div class="sq-line"><div class="sq-lbl">Forward</div><div class="sq-cells"><div class="sq-p"><div class="sq-n">Logan Morris</div><div class="sq-t">Brisbane &nbsp;&#183;&nbsp; KF &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.339</div></div><div class="sq-p"><div class="sq-n">Nick Watson</div><div class="sq-t">Hawthorn &nbsp;&#183;&nbsp; GF &nbsp;&#183;&nbsp; 2g</div><div class="sq-w">0.475</div></div><div class="sq-p"><div class="sq-n">Logan McDonald</div><div class="sq-t">Sydney &nbsp;&#183;&nbsp; KF &nbsp;&#183;&nbsp; 2g</div><div class="sq-w">0.364</div></div></div></div>
+  <div class="sq-line"><div class="sq-lbl">Bench</div><div class="sq-cells four"><div class="sq-p"><div class="sq-n">Conor McKenna</div><div class="sq-t">Brisbane &nbsp;&#183;&nbsp; GF &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.457</div></div><div class="sq-p"><div class="sq-n">Charlie Cameron</div><div class="sq-t">Brisbane &nbsp;&#183;&nbsp; GF &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.455</div></div><div class="sq-p"><div class="sq-n">Cam Rayner</div><div class="sq-t">Brisbane &nbsp;&#183;&nbsp; GF &nbsp;&#183;&nbsp; 4g</div><div class="sq-w">0.451</div></div><div class="sq-p"><div class="sq-n">Dylan Moore</div><div class="sq-t">Hawthorn &nbsp;&#183;&nbsp; GF &nbsp;&#183;&nbsp; 2g</div><div class="sq-w">0.448</div></div></div></div>
+  </div>
+
+  <h2>How this was worked out</h2>
+  <p class="body-p">Each player's game is scored with the same WAR v36 model used across the site, measured against the 2025 home and away baseline, so one game is worth roughly what one game is worth in the season ratings. Most inputs come straight from the match: goals, score involvements, contested marks, score launches, intercepts, intercept marks, tackles, hitouts to advantage, rebound 50s, one percenters and clangers.</p>
+  <p class="body-p">A few of the model's stats are not published for single games. For those we use the player's 2026 rate and apply it to what he did in the final. Threat rating is scaled by kicks, net metres by metres gained, hard ball gets by contested possessions and stoppage clearances by total clearances. Shot quality ratings and inside 50 kick retention use season values. So treat close calls, anything within a couple of hundredths, as close calls.</p>
+
+  <p class="footnote">Match data: Wheelo Ratings and AFL Tables. WAR: Don't Argue Media, v36.</p>
+
+</div>
+
+</body>
+</html>
