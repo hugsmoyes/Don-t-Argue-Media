@@ -98,7 +98,7 @@ body{font-family:var(--dm-body);font-variant-numeric:tabular-nums;background:var
 .dm-links .dm-cta:hover{color:#fff}
 h1,h2,h3{text-wrap:balance}
 .badge{border:none!important;background:none!important;padding:0!important;font-family:var(--dm-cond)!important;font-weight:600;font-size:14px!important;letter-spacing:.01em!important;text-transform:none!important;color:var(--dm-grass)!important}
-@media(max-width:560px){.dm-links a:not(.dm-cta){display:none}}
+@media(max-width:560px){.dm-wrap{height:auto;flex-wrap:wrap;padding-block:8px;row-gap:6px}.dm-links{width:100%;gap:13px;font-size:14px;white-space:nowrap;flex-wrap:wrap;row-gap:6px}.dm-links .dm-cta{margin-left:auto}}
 </style>
 <style id="dam-radar-skin">
 :root{--bg:#f3f5f0;--surface:#fff;--border:#dde3db;--accent:#1f9d55;--accent2:#ea580c;--text:#14201a;--muted:#5f6b63;--cond:"Barlow Condensed","Arial Narrow",sans-serif;--disp:"Big Shoulders Display",Impact,sans-serif}
@@ -173,7 +173,7 @@ header.rhdr .sub{font-family:var(--cond);font-size:11px;letter-spacing:.06em;col
 .dam-topnav-brand{font-family:"Big Shoulders Display",sans-serif;font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.06em;color:#14201a;text-decoration:none;}
 .dam-topnav-brand span{color:#1f9d55;}
 </style>
-<div class="dm-nav" role="navigation"><div class="dm-wrap"><a href="index.html" aria-label="Don't Argue Media home"><svg viewBox="0 0 178 38" height="34" xmlns="http://www.w3.org/2000/svg" aria-label="Don't Argue Media" style="display:block"><text x="0" y="22" font-family="'Big Shoulders Display',Impact,sans-serif" font-weight="800" font-size="24" fill="#14201a" letter-spacing="1">DON'T ARGUE</text><rect x="0" y="26" width="140" height="2.5" fill="#1f9d55"/><text x="1" y="37" font-family="'Barlow Condensed',sans-serif" font-weight="600" font-size="10" fill="#5f6b63" letter-spacing="6">MEDIA</text></svg></a><div class="dm-links"><a href="index.html#models">Models</a><a href="index.html#articles">Articles</a><a class="dm-cta" href="mailto:dontarguemedia@gmail.com">Contact</a></div></div></div>
+<div class="dm-nav" role="navigation"><div class="dm-wrap"><a href="index.html" aria-label="Don't Argue Media home"><svg viewBox="0 0 178 38" height="34" xmlns="http://www.w3.org/2000/svg" aria-label="Don't Argue Media" style="display:block"><text x="0" y="22" font-family="'Big Shoulders Display',Impact,sans-serif" font-weight="800" font-size="24" fill="#14201a" letter-spacing="1">DON'T ARGUE</text><rect x="0" y="26" width="140" height="2.5" fill="#1f9d55"/><text x="1" y="37" font-family="'Barlow Condensed',sans-serif" font-weight="600" font-size="10" fill="#5f6b63" letter-spacing="6">MEDIA</text></svg></a><div class="dm-links"><a href="index.html#models">Models</a><a href="players.html">Players</a><a href="index.html#deep-dives">Deep Dives</a><a href="about.html">About</a><a class="dm-cta" href="mailto:dontarguemedia@gmail.com">Contact</a></div></div></div>
 <div class="container">
 <header class="rhdr">
   <div class="badge">DAM Radar · 2024 to 2026 · Percentiles</div>
@@ -401,7 +401,7 @@ function buildGuide(){
   }).join('');
 }
 
-(function(){try{const h=new URLSearchParams(location.hash.slice(1));const n=h.get('p');if(!n)return;const y=h.get('y')||'2026';
+(function(){try{const h=new URLSearchParams(location.hash.slice(1));const n=h.get('p');if(!n){const d=byYr('Nick Watson','2026');if(d){p1=d;selYr='2026';render();}return;}const y=h.get('y')||'2026';
 const f=(nm,yr)=>DB.find(p=>p.n===nm&&p.yr===yr)||DB.find(p=>p.n===nm&&p.yr==='2026')||DB.find(p=>p.n===nm);
 const a=f(n,y);if(!a)return;const n2=h.get('c');
 if(n2){const b=f(n2,h.get('y2')||y);if(b){toggleCmp();p1=a;selYr=a.yr;p2=b;render();return;}}
